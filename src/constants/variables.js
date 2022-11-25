@@ -1,0 +1,11 @@
+export const WL_CHINESE_SI = 'chinese_simplified'
+export const WL_CHINESE_TR = 'chinese_traditional'
+export const WL_CZECH = 'czech'
+export const WL_ENGLISH = 'english'
+export const WL_FRENCH = 'french'
+export const WL_ITALIAN = 'italian'
+export const WL_JAPANESE = 'japanese'
+export const WL_KOREAN = 'korean'
+export const WL_PORTUGUESE = 'portuguese'
+export const WL_SPANISH = 'spanish'
+export const DEFAULT_LOCALE = process.env.REACT_APP_DEFAULT_LOCALE
