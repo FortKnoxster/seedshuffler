@@ -1,17 +1,88 @@
+:root {
+  --theme-background: #ffffff;
+  --theme-brand: #5c58bb;
+  --theme-green: #8cb531;
+  --theme-nav-background: #f4f4f4;
+  --theme-wordbox-background: #f4f4f4;
+  --theme-font: #555555;
+
+  --w-menu: 450px;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+}
+
 body {
   margin: 0;
   font-family: 'Lato';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: calc(6px + 1.1vmin);
+  color: var(--theme-font);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Lato';
 }
-:root {
-  --theme-background: rgb(239, 243, 247);
-  --theme-brand: #5c58bb;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  line-height: 26px;
+  font-size: calc(6px + 1.1vmin);
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: calc(18px + 2vmin);
+}
+
+h1.title {
+  color: var(--theme-green);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: calc(14px + 1.2vmin);
+  margin-bottom: 5px;
+}
+
+h3 {
+  font-size: calc(10px + 1.2vmin);
+  margin-bottom: 5px;
+}
+
+a {
+  color: var(--theme-brand);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.button-link {
+  color: var(--theme-brand);
+  background-color: transparent;
+  border: none;
+  margin-top: 10px;
+}
+
+.button-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* CSS */
@@ -28,10 +99,8 @@ code {
   color: #ffffff;
   cursor: pointer;
   flex-shrink: 0;
-  font-family: 'Inter UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-    sans-serif;
-  font-size: 20px;
+  font-family: 'Lato';
+  font-size: 22px;
   font-weight: 500;
   height: 4rem;
   padding: 0 1.6rem;
