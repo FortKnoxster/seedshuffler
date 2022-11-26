@@ -1,18 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { getNavigatorLocale, getSupportedLocale } from './helpers/locale'
+import locales from './assets/locales'
+import { IntlProvider } from 'react-intl'
 import './assets/fonts/lato/font.css'
 import './index.css'
 import App from './App'
-import reportWebVitals from './reportWebVitals'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
+
+const navigatorLocale = getNavigatorLocale()
+const supportedLocale = getSupportedLocale(navigatorLocale)
+
 root.render(
   <React.StrictMode>
-    <App />
+    <IntlProvider locale={navigatorLocale} messages={locales[supportedLocale]}>
+      <App />
+    </IntlProvider>
   </React.StrictMode>,
 )
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals()

@@ -1,4 +1,20 @@
 {
   "copyright": "Copyright © {brand} {year}.",
-  "disclaimer": "All rights reserved."
+  "disclaimer": "All rights reserved.",
+  "nav.intro.1": "SeedShuffler is a free tool to the crypto community, which enables you to generate your personal and 100% unique seed number matrix. The ultimate and safest way to store your seed phrase.",
+  "nav.intro.2": "The tool generates a unique mix of numbers, based on the original BIP39 2048 word list, but shuffled so it gets unique. SeedShuffler is {openSourced} and developed by cybersecurity company {brandName}, the creator of the DieFi crypto storage and inheritance platform.",
+  "nav.intro.openSourced": "open sourced",
+  "nav.how.title": "How?",
+  "nav.how.bullet.1": "Click the \"Generate Seed Matrix\" button.",
+  "nav.how.bullet.2": "Find your original stored wallet seed words, which came with your wallet.",
+  "nav.how.bullet.3": "Identify your original wallet seed words (12,18 or 24 words) step by step on the newly generated seed matrix list.",
+  "nav.how.bullet.4": "Write down the numbers which correspond with your original wallet seed words. Make sure it is in the right order, starting with the first word which is on your original wallet seed words list.",
+  "nav.how.bullet.5": "Download your unique seed matrix pdf and store it/ send it to a friend or family. You can store this pdf anywhere, as it is useless without the unique seed matrix numbers.",
+  "nav.why.title": "Why?",
+  "nav.why.text.1": "Having your original 24 word seed list in your house or stored on your computer is a huge risk.",
+  "nav.why.text.2": "By shuffling the list into a unique seed matrix based on random numbers, (not words) mitigates this risk 100%. Peace of mind.",
+  "nav.secure.title": "Is it secure?",
+  "nav.secure.text.1": "Yes. Every single generated matrix is 100% unique. You do not type in anything, SeedShuffler is a read-only web application. If you wish, you can even use it offline. Open sourced code is on Github.",
+  "nav.who.title": "Who should use this?",
+  "nav.who.text.1": "Everybody having a seed phrase based non-custodial wallet like Metamask, Trust Wallet, Ledger etc."
 }

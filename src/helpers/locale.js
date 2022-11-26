@@ -1,4 +1,4 @@
-import { DEFAULT_LOCALE } from 'constants/variables'
+import { DEFAULT_LOCALE } from '../constants/variables'
 
 export function getNavigatorLocale() {
   const navigatorLocale =
