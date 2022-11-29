@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { brands, solid } from '@fortawesome/fontawesome-svg-core/import.macro'
+
 import {
   WL_CHINESE_SI,
   WL_CHINESE_TR,
@@ -33,3 +36,31 @@ export const bip39LanguageOptions = [
   { value: WL_KOREAN, label: WL_KOREAN_NAME },
   { value: WL_PORTUGUESE, label: WL_PORTUGUESE_NAME },
 ]
+
+export const AngleDown = (props) => (
+  <FontAwesomeIcon icon={solid('angle-down')} {...props} />
+)
+
+export const AngleUp = (props) => (
+  <FontAwesomeIcon icon={solid('angle-up')} {...props} />
+)
+
+export const MenuToggle = (props) => (
+  <FontAwesomeIcon icon={solid('bars')} {...props} />
+)
+
+export const Twitter = (props) => (
+  <FontAwesomeIcon icon={brands('twitter')} {...props} />
+)
+
+export const Telegram = (props) => (
+  <FontAwesomeIcon icon={brands('telegram')} {...props} />
+)
+
+export const Reddit = (props) => (
+  <FontAwesomeIcon icon={brands('reddit')} {...props} />
+)
+
+export const Github = (props) => (
+  <FontAwesomeIcon icon={brands('github')} {...props} />
+)

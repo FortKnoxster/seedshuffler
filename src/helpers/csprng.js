@@ -57,7 +57,7 @@ export async function secureRandomInRange(minimum, maximum) {
 
   validateRange(range)
 
-  const { bitsNeeded, bytesNeeded, mask } = calculateParameters(range)
+  const { bytesNeeded, mask } = calculateParameters(range)
 
   const rBytes = randomBytes(bytesNeeded)
 

@@ -1,107 +1,119 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 import styled from '@emotion/styled/macro'
-import { FormattedMessage, useIntl } from 'react-intl'
-import { APP_BRAND_NAME } from '../constants/variables'
+import { FormattedMessage } from 'react-intl'
+import { AngleUp, AngleDown } from '../helpers/ui'
+import MenuContent from './MenuContent'
 
-const NavContent = ({}) => {
-  const intl = useIntl()
+const NavContent = ({ isVisible }) => {
+  const [isContentVisible, setIsContentVisible] = useState([
+    true,
+    false,
+    false,
+    false,
+  ])
+
+  async function onMenuToggle(index) {
+    const copyOfIsVisible = [...isContentVisible]
+    copyOfIsVisible.forEach((_, i) => (copyOfIsVisible[i] = false))
+    copyOfIsVisible[index] = !isContentVisible[index]
+    await setIsContentVisible(copyOfIsVisible)
+  }
+
   return (
-    <Wrapper>
+    <Wrapper className={isVisible ? 'open' : ''}>
       <Container>
-        <p>
-          <FormattedMessage id="nav.intro.1" />
-        </p>
-        <p>
-          <FormattedMessage
-            id="nav.intro.2"
-            values={{
-              openSourced: (
-                <a
-                  href="https://github.com/FortKnoxster/seedshuffler"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {intl.formatMessage({ id: 'nav.intro.openSourced' })}
-                </a>
-              ),
-              brandName: (
-                <a
-                  href="https://github.com/FortKnoxster/seedshuffler"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {APP_BRAND_NAME}
-                </a>
-              ),
-            }}
-          />
-        </p>
-        <h3>
-          <FormattedMessage id="nav.how.title" />
-        </h3>
-        <Ul>
-          <li>
-            <div>
-              <Dot />
-            </div>
-            <span>
-              <FormattedMessage id="nav.how.bullet.1" />
-            </span>
-          </li>
-          <li>
-            <div>
-              <Dot />
-            </div>
-            <span>
-              <FormattedMessage id="nav.how.bullet.2" />
-            </span>
-          </li>
-          <li>
-            <div>
-              <Dot />
-            </div>
-            <span>
-              <FormattedMessage id="nav.how.bullet.3" />
-            </span>
-          </li>
-          <li>
-            <div>
-              <Dot />
-            </div>
-            <span>
-              <FormattedMessage id="nav.how.bullet.4" />
-            </span>
-          </li>
-          <li>
-            <div>
-              <Dot />
-            </div>
-            <span>
-              <FormattedMessage id="nav.how.bullet.5" />
-            </span>
-          </li>
-        </Ul>
-        <h3>
-          <FormattedMessage id="nav.why.title" />
-        </h3>
-        <p>
-          <FormattedMessage id="nav.why.text.1" />
-        </p>
-        <p>
-          <FormattedMessage id="nav.why.text.2" />
-        </p>
-        <h3>
-          <FormattedMessage id="nav.secure.title" />
-        </h3>
-        <p>
-          <FormattedMessage id="nav.secure.text.1" />
-        </p>
-        <h3>
-          <FormattedMessage id="nav.who.title" />
-        </h3>
-        <p>
-          <FormattedMessage id="nav.who.text.1" />
-        </p>
+        <MenuItem onClick={() => onMenuToggle(0)}>
+          <h3>
+            <FormattedMessage id="nav.how.title" />
+          </h3>
+          {!isContentVisible[0] ? <AngleDown /> : <AngleUp />}
+        </MenuItem>
+        <MenuContent isVisible={isContentVisible[0]}>
+          <Ul>
+            <li>
+              <div>
+                <Dot />
+              </div>
+              <span>
+                <FormattedMessage id="nav.how.bullet.1" />
+              </span>
+            </li>
+            <li>
+              <div>
+                <Dot />
+              </div>
+              <span>
+                <FormattedMessage id="nav.how.bullet.2" />
+              </span>
+            </li>
+            <li>
+              <div>
+                <Dot />
+              </div>
+              <span>
+                <FormattedMessage id="nav.how.bullet.3" />
+              </span>
+            </li>
+            <li>
+              <div>
+                <Dot />
+              </div>
+              <span>
+                <FormattedMessage id="nav.how.bullet.4" />
+              </span>
+            </li>
+          </Ul>
+        </MenuContent>
+
+        <MenuItem onClick={() => onMenuToggle(1)}>
+          <h3>
+            <FormattedMessage id="nav.why.title" />
+          </h3>
+          {!isContentVisible[1] ? <AngleDown /> : <AngleUp />}
+        </MenuItem>
+        <MenuContent isVisible={isContentVisible[1]}>
+          <p>
+            <FormattedMessage id="nav.why.text.1" />
+          </p>
+          <p>
+            <FormattedMessage id="nav.why.text.2" />
+          </p>
+        </MenuContent>
+        <MenuItem onClick={() => onMenuToggle(2)}>
+          <h3>
+            <FormattedMessage id="nav.secure.title" />
+          </h3>
+          {!isContentVisible[2] ? <AngleDown /> : <AngleUp />}
+        </MenuItem>
+        <MenuContent isVisible={isContentVisible[2]}>
+          <p>
+            <FormattedMessage
+              id="nav.secure.text.1"
+              values={{
+                github: (
+                  <a
+                    href="https://github.com/FortKnoxster/seedshuffler"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Github
+                  </a>
+                ),
+              }}
+            />
+          </p>
+        </MenuContent>
+        <MenuItem onClick={() => onMenuToggle(3)}>
+          <h3>
+            <FormattedMessage id="nav.who.title" />
+          </h3>
+          {!isContentVisible[3] ? <AngleDown /> : <AngleUp />}
+        </MenuItem>
+        <MenuContent isVisible={isContentVisible[3]}>
+          <p>
+            <FormattedMessage id="nav.who.text.1" />
+          </p>
+        </MenuContent>
       </Container>
     </Wrapper>
   )
@@ -122,6 +134,21 @@ const Container = styled.div({
   justifyContent: 'center',
   padding: '0 1rem 1rem 1rem',
   paddingBottom: 60,
+  h3: {
+    width: '100%',
+  },
+})
+
+const MenuItem = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  cursor: 'pointer',
+  paddingRight: 5,
+  paddingLeft: 2,
+  position: 'relative',
+  ':hover': {
+    backgroundColor: 'var(--theme-nav-item-background)',
+  },
 })
 
 const Ul = styled.ul({
@@ -146,6 +173,6 @@ const Ul = styled.ul({
 const Dot = styled.div({
   backgroundColor: 'var(--theme-brand)',
   borderRadius: '50%',
-  height: 16,
-  width: 16,
+  height: 12,
+  width: 12,
 })
