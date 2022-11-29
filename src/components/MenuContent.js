@@ -4,7 +4,6 @@ const MenuContent = ({ children, isVisible }) => {
   return <Container className={isVisible ? 'open' : ''}>{children}</Container>
 }
 console.log('hihi')
-
 export default MenuContent
 
 const Container = styled.div({

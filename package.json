@@ -14,14 +14,20 @@
     "jspdf-autotable": "^3.5.25",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-intl": "^6.2.1",
+    "react-intl": "^6.2.2",
     "react-select": "^5.6.1"
   },
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
-    "eject": "craco eject"
+    "test": "echo \"pending impl craco test\"",
+    "eject": "craco eject",
+    "pre-commit": "lint-staged",
+    "eslint": "eslint src/**/*.js",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": "eslint --max-warnings=0"
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +57,9 @@
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.11",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.4",
+    "prettier": "^2.8.0",
     "webpack-subresource-integrity": "^5.1.0"
   }
 }
