@@ -16,13 +16,23 @@ function App() {
     MENU_HIDE_ON_WIDTH < size.width,
   )
 
-  function handleClose(e) {
-    if (
-      e.target.farthestViewportElement &&
-      e.target.farthestViewportElement.id === 'close-menu'
-    ) {
-      return
+  function toggleMenu(e) {
+    e.preventDefault()
+    e.stopPropagation()
+    if (isMenuVisible) {
+      setIsMenuVisible(false)
     } else {
+      setIsMenuVisible(true)
+    }
+  }
+
+  function handleClose(e) {
+    e.stopPropagation()
+    if (
+      e.target.id !== 'close-menu-button' &&
+      e.target.parentElement.id !== 'close-menu-button' &&
+      e.target.parentElement.parentElement.id !== 'close-menu-button'
+    ) {
       setIsMenuVisible(false)
     }
   }
@@ -45,10 +55,11 @@ function App() {
           <MobileHeader>
             <Img src={logo} alt="SeedShuffler" />
             <button
+              id="close-menu-button"
               className="button-icon"
-              onClick={() => setIsMenuVisible(!isMenuVisible)}
+              onClick={toggleMenu}
             >
-              <MenuToggle id="close-menu" size="lg" />
+              <MenuToggle size="lg" />
             </button>
           </MobileHeader>
         )}

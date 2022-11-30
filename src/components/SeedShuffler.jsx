@@ -11,6 +11,7 @@ import Select from 'react-select'
 import { jsPDF } from 'jspdf'
 import autoTable from 'jspdf-autotable'
 import { bip39LanguageOptions } from '../helpers/ui'
+import logo from '../assets/seedshuffler-logo.svg'
 import { NotoSansRegular } from '../assets/fonts/noto-sans/NotoSans-Regular-normal.js'
 //import { MPLUS1 } from '../assets/fonts/mplus1/MPLUS1-normal.js'
 
@@ -96,6 +97,8 @@ const SeedShuffler = ({}) => {
     console.log('font size', doc.getFontSize())
     */
 
+    doc.addSvgAsImage(logo, 60, 5, 79, 13)
+
     //doc.addImage(logo, 'PNG', 60, 5, 79, 13)
     doc.setFontSize(3)
     const maxCols = 13
@@ -144,23 +147,6 @@ const SeedShuffler = ({}) => {
             },
           )
           colIndex += 2
-          /*
-          if ((i + 1) % 2 === 0) {
-            // 2nd row
-            rows[1].push(word, index)
-          } else if ((i + 1) % 3 === 0) {
-            // 3rd row
-            rows[2].push(word, index)
-          } else if ((i + 1) % 4 === 0) {
-            // 4th row
-            rows[3].push(word, index)
-          } else {
-            // 1st row
-            rows[0].push(word, index)
-          }
-          */
-
-          //x += 5
         })
         const lineHeight = doc.getLineHeight(text) / doc.internal.scaleFactor
         const splittedText = doc.splitTextToSize(text, 190)
@@ -226,7 +212,7 @@ const SeedShuffler = ({}) => {
       </h2>
       <p className="intro-text">
         <FormattedMessage
-          id="nav.intro.1"
+          id="seed.intro.1"
           values={{
             numbers: (
               <span className="underline">
@@ -237,14 +223,14 @@ const SeedShuffler = ({}) => {
         />
       </p>
       <p className="intro-text">
-        <FormattedMessage id="nav.intro.2" />
+        <FormattedMessage id="seed.intro.2" />
       </p>
       <p className="intro-text">
-        <FormattedMessage id="nav.intro.3" />
+        <FormattedMessage id="seed.intro.3" />
       </p>
       <p className="intro-text">
         <FormattedMessage
-          id="nav.intro.4"
+          id="seed.intro.4"
           values={{
             brandName: APP_BRAND_NAME,
           }}
@@ -353,6 +339,7 @@ const Container = styled.div({
   },
   p: {
     maxWidth: '55%',
+    minWidth: '55%',
     '@media (max-width: 2200px)': {
       maxWidth: '75%',
     },

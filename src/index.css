@@ -248,20 +248,24 @@ a:hover {
   text-decoration: none;
 }
 
-.button-icon {
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 1rem;
-  border: none;
-  cursor: 'pointer';
-}
-
 .button-icon:hover {
   background-color: var(--theme-brand);
 }
 
+.button-icon,
+.button-icon:active,
+.button-icon:visited {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
 .button-icon svg {
   color: var(--theme-brand);
+  z-index: 1;
 }
 
 .button-icon:hover svg {
