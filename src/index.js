@@ -12,11 +12,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 const navigatorLocale = getNavigatorLocale()
 const supportedLocale = getSupportedLocale(navigatorLocale)
 
-/*
 window.onbeforeunload = (e) => {
   return true
 }
-*/
 
 root.render(
   <React.StrictMode>
