@@ -7,7 +7,7 @@
   --theme-nav-item-background: #f5f5f7;
   --theme-wordbox-background: #ffffff;
   --theme-font: #555555;
-  --theme-link: #000000;
+  --theme-link: var(--theme-brand);
   --w-menu: 330px;
 }
 
@@ -130,9 +130,9 @@ p.intro-text {
     margin-bottom: 10px;
   }
   h2.title {
-    font-size: calc(22px + 2vmin);
-    padding-top: 10px;
-    padding-bottom: 20px;
+    font-size: calc(18px + 2vmin);
+    padding-top: 5px;
+    padding-bottom: 15px;
   }
   h2.subtitle {
     font-size: calc(22px + 2vmin);
@@ -144,10 +144,14 @@ p.intro-text {
 
 a {
   color: var(--theme-link);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:hover {
+  text-decoration: none;
+}
+
+.underline {
   text-decoration: underline;
 }
 
@@ -187,6 +191,34 @@ a:hover {
 .button:hover {
   transition-duration: 0.1s;
   filter: brightness(90%);
+}
+
+.button-sm {
+  background-color: var(--theme-brand);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: 'Lato';
+  font-size: 18px;
+  font-weight: 500;
+  height: 3rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  transition: all 0.5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  line-height: 44px;
+  text-decoration: none;
+}
+
+.button-sm:hover {
+  transition-duration: 0.1s;
+  filter: brightness(90%);
+  text-decoration: none;
 }
 
 .button-outline {
@@ -234,6 +266,10 @@ a:hover {
 
 .button-icon:hover svg {
   color: #ffffff;
+}
+
+.social-icon svg {
+  color: #000000;
 }
 
 .social-icon:hover svg {

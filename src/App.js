@@ -118,7 +118,7 @@ const AppFooter = styled.div({
   flexDirection: 'column',
   padding: '0 1rem 1rem 1rem',
   justifyContent: 'center',
-  paddingTop: 20,
+  paddingTop: 30,
   gap: 10,
   borderTop: '2px solid #ccc',
 })

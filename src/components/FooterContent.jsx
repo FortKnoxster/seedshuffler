@@ -6,9 +6,8 @@ import { Twitter, Telegram, Reddit, Github } from '../helpers/ui'
 const FooterContent = ({}) => {
   return (
     <>
-      <h3>Everything about SeedShuffler</h3>
       <a
-        className="button-outline"
+        className="button-sm"
         href="https://fortknoxster.com/SeedShuffler"
         target="_blank"
         rel="noopener noreferrer"

@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import styled from '@emotion/styled/macro'
-import { FormattedMessage } from 'react-intl'
+import { FormattedMessage, useIntl } from 'react-intl'
 import { AngleUp, AngleDown } from '../helpers/ui'
 import MenuContent from './MenuContent'
 
 const NavContent = ({ isVisible }) => {
+  const intl = useIntl()
   const [isContentVisible, setIsContentVisible] = useState([
     true,
+    false,
     false,
     false,
     false,
@@ -112,6 +114,30 @@ const NavContent = ({ isVisible }) => {
         <MenuContent isVisible={isContentVisible[3]}>
           <p>
             <FormattedMessage id="nav.who.text.1" />
+          </p>
+        </MenuContent>
+        <MenuItem onClick={() => onMenuToggle(4)}>
+          <h3>
+            <FormattedMessage id="nav.ex.title" />
+          </h3>
+          {!isContentVisible[4] ? <AngleDown /> : <AngleUp />}
+        </MenuItem>
+        <MenuContent isVisible={isContentVisible[4]}>
+          <p>
+            <FormattedMessage
+              id="nav.ex.text.1"
+              values={{
+                here: (
+                  <a
+                    href="https://fortknoxster.com/seedshuffler-example"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {intl.formatMessage({ id: 'here' })}
+                  </a>
+                ),
+              }}
+            />
           </p>
         </MenuContent>
       </Container>

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import styled from '@emotion/styled/macro'
-import { FormattedMessage } from 'react-intl'
+import { FormattedMessage, useIntl } from 'react-intl'
 import {
   WL_ENGLISH,
   APP_BRAND_NAME,
@@ -11,21 +11,18 @@ import Select from 'react-select'
 import { jsPDF } from 'jspdf'
 import autoTable from 'jspdf-autotable'
 import { bip39LanguageOptions } from '../helpers/ui'
-import {
-  exampleSeedPhrase1,
-  exampleSeedPhrase2,
-  exampleNumbers1,
-  exampleNumbers2,
-} from './viewModel.js'
 import { NotoSansRegular } from '../assets/fonts/noto-sans/NotoSans-Regular-normal.js'
 //import { MPLUS1 } from '../assets/fonts/mplus1/MPLUS1-normal.js'
 
 // eslint-disable-next-line no-empty-pattern
 const SeedShuffler = ({}) => {
-  const ref = useRef()
+  const intl = useIntl()
+  const gridRef = useRef()
+  const buttonRef = useRef()
   const [shuffledWordlist, setShuffledWordlist] = useState(null)
   const [wordlist, setWordlist] = useState(null)
   const [language, setLanguage] = useState(WL_ENGLISH)
+  const [showSeed, setShowSeed] = useState(false)
 
   useEffect(() => {
     async function initWordlist() {
@@ -170,10 +167,27 @@ const SeedShuffler = ({}) => {
         //console.log('splittedText', splittedText)
         const lines = splittedText.length // splitted text is a string array
         const blockHeight = lines * lineHeight
-        //console.log('text', text)
+        //console.log('rows', rows)
+        //console.log('shuffledWordlist[letter]', shuffledWordlist[letter])
         autoTable(doc, {
           //head: [[{ content: shuffledWordlist[letter], colSpan: maxCols }]],
-          //head: [[shuffledWordlist[letter]], [], [], [], [], [], [], [], []],
+          head: [
+            [
+              {
+                content: letter,
+                colSpan: maxCols,
+                styles: {
+                  halign: 'left',
+                  cellPadding: 1,
+                  font: 'helvetica',
+                  fontSize: 11,
+                  textColor: '#000000',
+                  fontStyle: 'bold',
+                  fillColor: '#f3ba2f',
+                },
+              },
+            ],
+          ],
           body: rows,
         })
 
@@ -195,6 +209,13 @@ const SeedShuffler = ({}) => {
     setLanguage(value)
   }
 
+  function showSeedMatrix() {
+    setShowSeed(!showSeed)
+    setTimeout(() => {
+      window.scrollTo(0, buttonRef.current.offsetTop - 20)
+    }, 250)
+  }
+
   return (
     <Container>
       <h1>
@@ -204,14 +225,26 @@ const SeedShuffler = ({}) => {
         <FormattedMessage id="seed.subtitle" />
       </h2>
       <p className="intro-text">
-        <FormattedMessage id="nav.intro.1" />
+        <FormattedMessage
+          id="nav.intro.1"
+          values={{
+            numbers: (
+              <span className="underline">
+                {intl.formatMessage({ id: 'numbers' })}
+              </span>
+            ),
+          }}
+        />
       </p>
       <p className="intro-text">
         <FormattedMessage id="nav.intro.2" />
       </p>
       <p className="intro-text">
+        <FormattedMessage id="nav.intro.3" />
+      </p>
+      <p className="intro-text">
         <FormattedMessage
-          id="nav.intro.3"
+          id="nav.intro.4"
           values={{
             brandName: APP_BRAND_NAME,
           }}
@@ -249,108 +282,56 @@ const SeedShuffler = ({}) => {
           </button>
         </GenerateWrapper>
       )}
-      {Boolean(shuffledWordlist) && (
+      {Boolean(0) && (
         <h2 className="subtitle">
           <FormattedMessage id="seed.yourSeed" />
         </h2>
       )}
-      <Grid ref={ref}>
-        {Boolean(shuffledWordlist) &&
-          Object.keys(shuffledWordlist)
-            .sort()
-            .map((letter) => {
-              return (
-                <WordBox key={letter}>
-                  <h3>{letter}</h3>
-                  {shuffledWordlist[letter].map(({ word, index }) => {
-                    return (
-                      <div key={index} className="wordlist">
-                        <div>{index}</div>
-                        <div>{word}</div>
-                      </div>
-                    )
-                  })}
-                </WordBox>
-              )
-            })}
-      </Grid>
+
       {Boolean(shuffledWordlist) && (
         <>
           <Panel>
             <button
+              ref={buttonRef}
               className="button"
               disabled={!wordlist}
               onClick={() => downloadPdf()}
             >
               <FormattedMessage id="seed.button.download" />
             </button>
+            {showSeed ? (
+              <ShowSeedMatrix onClick={() => setShowSeed(!showSeed)}>
+                <FormattedMessage id="seed.hideSeed" />
+              </ShowSeedMatrix>
+            ) : (
+              <ShowSeedMatrix onClick={() => showSeedMatrix()}>
+                <FormattedMessage id="seed.showSeed" />
+              </ShowSeedMatrix>
+            )}
           </Panel>
-          <ExampleContent>
-            <h2 className="subtitle">
-              <FormattedMessage id="nav.example.title" />
-            </h2>
-            <p className="intro-text">
-              <FormattedMessage id="nav.example.text.1" />
-            </p>
-            <div className="inline">
-              <Ul>
-                {exampleSeedPhrase1.map((seed) => {
-                  return (
-                    <li key={seed}>
-                      <span>{seed}</span>
-                    </li>
-                  )
-                })}
-              </Ul>
-              <Ul>
-                {exampleSeedPhrase2.map((seed) => {
-                  return (
-                    <li key={seed}>
-                      <span>{seed}</span>
-                    </li>
-                  )
-                })}
-              </Ul>
-            </div>
-            <p className="intro-text">
-              <FormattedMessage id="nav.example.text.2" />
-            </p>
-            <p className="intro-text">
-              <FormattedMessage id="nav.example.text.3" />
-            </p>
-            <p className="intro-text">
-              <FormattedMessage id="nav.example.text.4" />
-            </p>
-            <div className="inline">
-              <Ul>
-                {exampleNumbers1.map((number) => {
-                  return (
-                    <li key={number}>
-                      <span>{number}</span>
-                    </li>
-                  )
-                })}
-              </Ul>
-              <Ul>
-                {exampleNumbers2.map((number) => {
-                  return (
-                    <li key={number}>
-                      <span>{number}</span>
-                    </li>
-                  )
-                })}
-              </Ul>
-            </div>
-            <p className="intro-text">
-              <FormattedMessage id="nav.example.text.5" />
-            </p>
-            <p className="intro-text">
-              <FormattedMessage id="nav.example.text.6" />
-            </p>
-            <p className="intro-text">
-              <FormattedMessage id="nav.example.text.7" />
-            </p>
-          </ExampleContent>
+
+          {showSeed && (
+            <Grid ref={gridRef}>
+              {Boolean(shuffledWordlist) &&
+                Object.keys(shuffledWordlist)
+                  .sort()
+                  .map((letter) => {
+                    return (
+                      <WordBox key={letter}>
+                        <h3>{letter}</h3>
+                        {shuffledWordlist[letter].map(({ word, index }) => {
+                          return (
+                            <div key={index} className="wordlist">
+                              <div>{index}</div>
+                              <div>{word}</div>
+                            </div>
+                          )
+                        })}
+                      </WordBox>
+                    )
+                  })}
+            </Grid>
+          )}
         </>
       )}
     </Container>
@@ -364,7 +345,7 @@ const Container = styled.div({
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  padding: '2.2rem',
+  padding: '1.5rem 2.2rem',
   width: '80%',
   height: '100%',
   h3: {
@@ -390,6 +371,9 @@ const Panel = styled.div({
   width: '35%',
   '& .button': {
     marginTop: 40,
+    '@media (max-width: 768px)': {
+      marginTop: 20,
+    },
   },
   '@media (max-width: 2200px)': {
     maxWidth: '55%',
@@ -457,38 +441,23 @@ const SelectWrapper = styled.div({
   flexDirection: 'column',
   marginTop: 40,
   marginBottom: 40,
-})
-
-const Ul = styled.ul({
-  listStyleType: 'none',
-  display: 'flex',
-  flexDirection: 'column',
-  marginTop: 15,
-  marginBottom: 0,
-  li: {
-    display: 'flex',
+  '@media (max-width: 768px)': {
+    marginTop: 20,
     marginBottom: 20,
-    span: {
-      paddingLeft: 15,
-    },
-    div: {
-      marginTop: 1,
-    },
   },
-  paddingLeft: 0,
 })
 
-const ExampleContent = styled.div({
-  margin: '40px auto',
-  width: '55%',
-  p: {
-    width: '100%',
-    maxWidth: '100%',
-  },
-  '> div.inline': {
-    display: 'flex',
+const ShowSeedMatrix = styled.div({
+  textDecoration: 'underline',
+  textAlign: 'center',
+  cursor: 'pointer',
+  marginTop: 40,
+  marginBottom: 20,
+  '&:hover': {
+    textDEcoration: 'none',
   },
   '@media (max-width: 768px)': {
-    width: '100%',
+    marginTop: 20,
+    marginBottom: 10,
   },
 })
