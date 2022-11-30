@@ -142,6 +142,24 @@ p.intro-text {
   }
 }
 
+p.disclaimer {
+  font-size: calc(4px + 1vmin);
+}
+
+@media (max-width: 768px) {
+  p.disclaimer {
+    font-size: calc(8px + 1.1vmin);
+  }
+}
+
+p.disclaimer a {
+  color: var(--theme-font);
+}
+
+p.disclaimer a:hover {
+  color: var(--theme-link);
+}
+
 a {
   color: var(--theme-link);
   text-decoration: underline;

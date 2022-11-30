@@ -53,37 +53,7 @@ const SeedShuffler = ({}) => {
       console.error(err)
     }
   }
-  /*
-  function downloadPdf2() {
-    var doc = new jsPDF()
-    var text =
-      'This is a text without real content but with 59 characters. This is a text without real content but with 59 characters.This is a text without real content but with 59 characters.This is a text without real content but with 59 characters.This is a text without real content but with 59 characters.'
 
-    var lineHeight = doc.getLineHeight(text) / doc.internal.scaleFactor
-    var splittedText = doc.splitTextToSize(text, 190)
-    console.log('splittedText', splittedText)
-    var lines = splittedText.length // splitted text is a string array
-    var blockHeight = lines * lineHeight
-    var yPos = 10
-    var xPos = 10
-    doc.text(xPos, yPos, splittedText)
-    yPos += blockHeight
-    doc.text(xPos, yPos, '----- This text follows the previous text block.')
-    yPos += lineHeight
-    doc.text(
-      xPos,
-      yPos,
-      '----- LineHeight=' + lineHeight + ' / blockHeight=' + blockHeight,
-    )
-    yPos += lineHeight
-    doc.text(
-      xPos,
-      yPos,
-      '----- doc.internal.scaleFactor = ' + doc.internal.scaleFactor,
-    )
-    doc.save(PDF_FILE_NAME)
-  }
-*/
   function downloadPdf() {
     const doc = new jsPDF()
 
@@ -333,6 +303,7 @@ export default SeedShuffler
 
 const Container = styled.div({
   display: 'flex',
+  flexGrow: 1,
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',

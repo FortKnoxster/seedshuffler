@@ -6,8 +6,9 @@ import NavContent from './components/NavContent'
 import FootterContent from './components/FooterContent'
 import { MenuToggle } from './helpers/ui'
 import { useWindowSize } from './hooks/useWindowSize'
-import { MENU_HIDE_ON_WIDTH } from './constants/variables'
+import { APP_BRAND, MENU_HIDE_ON_WIDTH } from './constants/variables'
 import useOnClickOutside from './hooks/useOnClickOutside'
+import { FormattedMessage } from 'react-intl'
 
 function App() {
   const size = useWindowSize()
@@ -64,6 +65,26 @@ function App() {
           </MobileHeader>
         )}
         <SeedShuffler />
+        <Disclaimer>
+          <p className="disclaimer">
+            <FormattedMessage
+              id="copyright"
+              values={{
+                year: new Date().getFullYear(),
+                brand: (
+                  <a
+                    href="https://fortknoxster.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {APP_BRAND}
+                  </a>
+                ),
+              }}
+            />{' '}
+            <FormattedMessage id="disclaimer" />
+          </p>
+        </Disclaimer>
       </AppConent>
     </AppContainer>
   )
@@ -153,5 +174,19 @@ const MobileHeader = styled.div({
     width: 120,
     marginBottom: 0,
     marginRight: 0,
+  },
+})
+
+const Disclaimer = styled.div({
+  marginBottom: 0,
+  flex: 1,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexDirection: 'column',
+  width: '100%',
+  flexGrow: 0,
+  p: {
+    margin: 0,
   },
 })
