@@ -66,6 +66,27 @@ function App() {
         )}
         <SeedShuffler />
         <Disclaimer>
+          <FooterLinks>
+            <p>
+              <a
+                href="mailto:contact@fortknoxster.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FormattedMessage id="contact" />
+              </a>
+            </p>{' '}
+            ·{' '}
+            <p>
+              <a
+                href="https://help.fortknoxster.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FormattedMessage id="support" />
+              </a>
+            </p>
+          </FooterLinks>
           <p className="disclaimer">
             <FormattedMessage
               id="copyright"
@@ -177,7 +198,8 @@ const MobileHeader = styled.div({
   },
 })
 
-const Disclaimer = styled.div({
+const Disclaimer = styled.footer({
+  paddingTop: 20,
   marginBottom: 0,
   flex: 1,
   display: 'flex',
@@ -189,4 +211,10 @@ const Disclaimer = styled.div({
   p: {
     margin: 0,
   },
+})
+
+const FooterLinks = styled.div({
+  display: 'flex',
+  gap: 10,
+  paddingBottom: 10,
 })

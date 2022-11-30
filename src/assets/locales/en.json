@@ -1,6 +1,8 @@
 {
   "copyright": "Copyright © {brand} {year}.",
   "disclaimer": "All rights reserved.",
+  "contact": "Contact",
+  "support": "Support",
   "here": "here",
   "numbers": "numbers",
   "nav.intro.openSourced": "open sourced",
