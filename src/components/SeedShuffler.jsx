@@ -11,7 +11,7 @@ import Select from 'react-select'
 import { jsPDF } from 'jspdf'
 import autoTable from 'jspdf-autotable'
 import { bip39LanguageOptions } from '../helpers/ui'
-import logo from '../assets/seedshuffler-logo.svg'
+import logo from '../assets/seedshuffler-logo.png'
 import { NotoSansRegular } from '../assets/fonts/noto-sans/NotoSans-Regular-normal.js'
 //import { MPLUS1 } from '../assets/fonts/mplus1/MPLUS1-normal.js'
 
@@ -97,15 +97,17 @@ const SeedShuffler = ({}) => {
     console.log('font size', doc.getFontSize())
     */
 
-    doc.addSvgAsImage(logo, 60, 5, 79, 13)
+    //doc.addSvgAsImage(logo, 60, 5, 79, 13)
 
-    //doc.addImage(logo, 'PNG', 60, 5, 79, 13)
-    doc.setFontSize(3)
-    const maxCols = 13
+    doc.addImage(logo, 'PNG', 72, 5, 60, 38)
+    doc.setFontSize(10)
+    doc.text(intl.formatMessage({ id: 'pdf.intro.1' }), 10, 49)
+    doc.text(intl.formatMessage({ id: 'pdf.intro.2' }), 10, 54)
+    const maxCols = 14
     let y = 25
     Object.keys(shuffledWordlist)
       .sort()
-      .forEach((letter) => {
+      .forEach((letter, j) => {
         //doc.text(letter, x, y)
         y += 5
         //doc.text(shuffledWordlist[letter], 10, y)
@@ -175,6 +177,9 @@ const SeedShuffler = ({}) => {
             ],
           ],
           body: rows,
+          startY: j === 0 ? 60 : undefined,
+          margin: 10,
+          showHead: 'firstPage',
         })
 
         //const r = doc.text(splittedText, x, y)
@@ -342,6 +347,7 @@ const Container = styled.div({
     minWidth: '55%',
     '@media (max-width: 2200px)': {
       maxWidth: '75%',
+      minWidth: '75%',
     },
     '@media (max-width: 768px)': {
       maxWidth: '100%',

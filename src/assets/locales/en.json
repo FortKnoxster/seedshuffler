@@ -46,5 +46,7 @@
   "seed.button.download": "Download Seed Matrix PDF",
   "seed.showSeed": "Show seed matrix",
   "seed.hideSeed": "Hide seed matrix",
-  "footer.learnMore": "Learn more"
+  "footer.learnMore": "Learn more",
+  "pdf.intro.1": "This is your personal and 100% unique seedbook. Feel free to store it anywhere and save it with friends and family.",
+  "pdf.intro.2": "The seedbook is useless without your unique seed matrix numbers. Warning: Never store both at the same place."
 }
