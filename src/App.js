@@ -110,7 +110,7 @@ const AppConent = styled.div({
   justifyContent: 'center',
   alignContent: 'center',
   backgroundColor: 'var(--theme-background)',
-  overflow: 'auto',
+  overflow: 'hidden auto',
   padding: '0 1rem 1rem 1rem',
   marginLeft: 'var(--w-menu)',
   '@media (max-width: 768px)': {
