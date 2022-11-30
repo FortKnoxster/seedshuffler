@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import styled from '@emotion/styled/macro'
 import logo from './assets/seedshuffler-logo.svg'
 import SeedShuffler from './components/SeedShuffler'
@@ -7,16 +7,31 @@ import FootterContent from './components/FooterContent'
 import { MenuToggle } from './helpers/ui'
 import { useWindowSize } from './hooks/useWindowSize'
 import { MENU_HIDE_ON_WIDTH } from './constants/variables'
+import useOnClickOutside from './hooks/useOnClickOutside'
 
 function App() {
   const size = useWindowSize()
+  const menuRef = useRef(null)
   const [isMenuVisible, setIsMenuVisible] = useState(
     MENU_HIDE_ON_WIDTH < size.width,
   )
 
+  function handleClose(e) {
+    if (
+      e.target.farthestViewportElement &&
+      e.target.farthestViewportElement.id === 'close-menu'
+    ) {
+      return
+    } else {
+      setIsMenuVisible(false)
+    }
+  }
+
+  useOnClickOutside(menuRef, handleClose)
+
   return (
     <AppContainer>
-      <AppMenu className={isMenuVisible ? 'open' : ''}>
+      <AppMenu ref={menuRef} className={isMenuVisible ? 'open' : ''}>
         <AppLogo>
           <Img src={logo} alt="SeedShuffler" />
         </AppLogo>
@@ -33,7 +48,7 @@ function App() {
               className="button-icon"
               onClick={() => setIsMenuVisible(!isMenuVisible)}
             >
-              <MenuToggle size="lg" />
+              <MenuToggle id="close-menu" size="lg" />
             </button>
           </MobileHeader>
         )}
@@ -112,6 +127,9 @@ const Img = styled.img({
   width: '70%',
   marginBottom: 20,
   marginRight: 5,
+  '@media (max-width: 768px)': {
+    width: '50%',
+  },
 })
 
 const MobileHeader = styled.div({
