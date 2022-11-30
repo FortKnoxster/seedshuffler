@@ -23,8 +23,7 @@
     "test": "echo \"pending impl craco test\"",
     "eject": "craco eject",
     "pre-commit": "lint-staged",
-    "eslint": "eslint src/**/*.js",
-    "prepare": "husky install"
+    "eslint": "eslint src/**/*.js"
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": "eslint --max-warnings=0"
