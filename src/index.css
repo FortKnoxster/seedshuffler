@@ -41,7 +41,7 @@ code {
   h5,
   h6,
   p {
-    line-height: 26px;
+    line-height: 6px;
   }
 }
 
@@ -52,7 +52,7 @@ h4,
 h5,
 h6,
 p {
-  line-height: 26px;
+  line-height: 22px;
   font-size: calc(6px + 1.1vmin);
   margin-top: 10px;
   margin-bottom: 15px;
