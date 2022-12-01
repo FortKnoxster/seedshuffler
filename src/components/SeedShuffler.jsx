@@ -438,7 +438,10 @@ const GenerateWrapper = styled.div({
   flexDirection: 'column',
   width: '35%',
   '@media (max-width: 2200px)': {
-    maxWidth: '55%',
+    width: '55%',
+  },
+  '@media (max-width: 1000px)': {
+    width: '75%',
   },
   '@media (max-width: 768px)': {
     width: '100%',
