@@ -49,7 +49,7 @@
   "seed.bullet.5": "Always keep your seedbook and unique numbers separate at all times, as possessing both can identify your original wallet seed phrase.",
   "seed.yourSeed": "Your unique seed matrix:",
   "seed.button.generate": "Generate Seed Matrix",
-  "seed.button.download": "Download Seed Matrix PDF",
+  "seed.button.download": "Download Your Seedbook",
   "seed.showSeed": "Show seed matrix",
   "seed.hideSeed": "Hide seed matrix",
   "footer.learnMore": "Learn more",
