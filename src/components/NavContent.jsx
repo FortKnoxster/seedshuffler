@@ -36,6 +36,9 @@ const NavContent = ({ isVisible }) => {
           <p>
             <FormattedMessage id="nav.why.text.2" />
           </p>
+          <p>
+            <FormattedMessage id="nav.why.text.3" />
+          </p>
         </MenuContent>
         <MenuItem onClick={() => onMenuToggle(1)}>
           <h3>
