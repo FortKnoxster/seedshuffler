@@ -75,16 +75,6 @@ function App() {
               >
                 <FormattedMessage id="contact" />
               </a>
-            </p>{' '}
-            ·{' '}
-            <p>
-              <a
-                href="https://help.fortknoxster.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FormattedMessage id="support" />
-              </a>
             </p>
           </FooterLinks>
           <p className="disclaimer">
