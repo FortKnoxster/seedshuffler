@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl'
 import { Twitter, Telegram, Reddit, Github } from '../helpers/ui'
 
 // eslint-disable-next-line no-empty-pattern
-const FooterContent = ({}) => {
+const AppFooter = ({}) => {
   return (
     <>
       <a
@@ -49,12 +49,19 @@ const FooterContent = ({}) => {
         >
           <Github className="social-icon" />
         </a>
+        <a
+          href="mailto:contact@fortknoxster.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FormattedMessage id="contact" />
+        </a>
       </SocialIcons>
     </>
   )
 }
 
-export default FooterContent
+export default AppFooter
 
 const SocialIcons = styled.div({
   display: 'flex',

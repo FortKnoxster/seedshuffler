@@ -47,9 +47,6 @@ function App() {
           <Img src={logo} alt="SeedShuffler" />
         </AppLogo>
         <NavContent />
-        <AppFooter>
-          <FootterContent />
-        </AppFooter>
       </AppMenu>
       <AppConent className={isMenuVisible ? 'open' : ''}>
         {size.width < MENU_HIDE_ON_WIDTH && (
@@ -156,20 +153,9 @@ const AppLogo = styled.div({
   justifyContent: 'center',
 })
 
-const AppFooter = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  padding: '0 1rem 1rem 1rem',
-  justifyContent: 'center',
-  paddingTop: 30,
-  gap: 10,
-  borderTop: '2px solid #ccc',
-})
-
 const Img = styled.img({
-  width: '70%',
-  marginBottom: 20,
-  marginRight: 5,
+  width: '100%',
+  margin: '20px 5px 20px 0',
   '@media (max-width: 768px)': {
     width: '50%',
   },

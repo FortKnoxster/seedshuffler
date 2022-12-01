@@ -53,6 +53,8 @@ const SeedShuffler = ({}) => {
 
   async function preparePdf() {
     const doc = new jsPDF()
+    doc.addImage(logo, 'PNG', 67, 5)
+    doc.setFontSize(10)
     doc.addFileToVFS('NotoSans-Regular-normal.ttf', NotoSansRegular)
     doc.addFont('NotoSans-Regular-normal.ttf', 'NotoSans-Regular', 'normal')
     doc.setFont('NotoSans-Regular')
@@ -68,10 +70,8 @@ const SeedShuffler = ({}) => {
   async function downloadPdf() {
     const doc = await preparePdf()
 
-    doc.addImage(logo, 'PNG', 72, 5, 60, 38)
-    doc.setFontSize(10)
-    doc.text(intl.formatMessage({ id: 'pdf.intro.1' }), 10, 49)
-    doc.text(intl.formatMessage({ id: 'pdf.intro.2' }), 10, 54)
+    doc.text(intl.formatMessage({ id: 'pdf.intro.1' }), 10, 24)
+    doc.text(intl.formatMessage({ id: 'pdf.intro.2' }), 10, 29)
     /*
     doc.textWithLink(intl.formatMessage({ id: 'pdf.footer' }), 10, 57, {
       url: 'https://fortknoxster.com',
@@ -144,7 +144,7 @@ const SeedShuffler = ({}) => {
             ],
           ],
           body: rows,
-          startY: j === 0 ? 60 : undefined,
+          startY: j === 0 ? 38 : undefined,
           margin: 10,
           showHead: 'firstPage',
         })

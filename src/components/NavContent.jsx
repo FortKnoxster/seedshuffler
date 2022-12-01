@@ -3,6 +3,7 @@ import styled from '@emotion/styled/macro'
 import { FormattedMessage, useIntl } from 'react-intl'
 import { AngleUp, AngleDown } from '../helpers/ui'
 import MenuContent from './MenuContent'
+import { Twitter, Telegram, Reddit, Github } from '../helpers/ui'
 
 const NavContent = ({ isVisible }) => {
   const intl = useIntl()
@@ -21,86 +22,141 @@ const NavContent = ({ isVisible }) => {
   }
 
   return (
-    <Wrapper className={isVisible ? 'open' : ''}>
-      <Container>
-        <MenuItem onClick={() => onMenuToggle(0)}>
-          <h3>
-            <FormattedMessage id="nav.why.title" />
-          </h3>
-          {!isContentVisible[0] ? <AngleDown /> : <AngleUp />}
-        </MenuItem>
-        <MenuContent isVisible={isContentVisible[0]}>
-          <p>
-            <FormattedMessage id="nav.why.text.1" />
-          </p>
-          <p>
-            <FormattedMessage id="nav.why.text.2" />
-          </p>
-          <p>
-            <FormattedMessage id="nav.why.text.3" />
-          </p>
-        </MenuContent>
-        <MenuItem onClick={() => onMenuToggle(1)}>
-          <h3>
-            <FormattedMessage id="nav.secure.title" />
-          </h3>
-          {!isContentVisible[1] ? <AngleDown /> : <AngleUp />}
-        </MenuItem>
-        <MenuContent isVisible={isContentVisible[1]}>
-          <p>
-            <FormattedMessage
-              id="nav.secure.text.1"
-              values={{
-                github: (
-                  <a
-                    href="https://github.com/FortKnoxster/seedshuffler"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Github
-                  </a>
-                ),
-              }}
-            />
-          </p>
-        </MenuContent>
-        <MenuItem onClick={() => onMenuToggle(2)}>
-          <h3>
-            <FormattedMessage id="nav.who.title" />
-          </h3>
-          {!isContentVisible[2] ? <AngleDown /> : <AngleUp />}
-        </MenuItem>
-        <MenuContent isVisible={isContentVisible[2]}>
-          <p>
-            <FormattedMessage id="nav.who.text.1" />
-          </p>
-        </MenuContent>
-        <MenuItem onClick={() => onMenuToggle(3)}>
-          <h3>
-            <FormattedMessage id="nav.ex.title" />
-          </h3>
-          {!isContentVisible[3] ? <AngleDown /> : <AngleUp />}
-        </MenuItem>
-        <MenuContent isVisible={isContentVisible[3]}>
-          <p>
-            <FormattedMessage
-              id="nav.ex.text.1"
-              values={{
-                here: (
-                  <a
-                    href="https://fortknoxster.com/seedshuffler-example"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {intl.formatMessage({ id: 'here' })}
-                  </a>
-                ),
-              }}
-            />
-          </p>
-        </MenuContent>
-      </Container>
-    </Wrapper>
+    <>
+      <Wrapper className={isVisible ? 'open' : ''}>
+        <Container>
+          <MenuItem onClick={() => onMenuToggle(0)}>
+            <h3>
+              <FormattedMessage id="nav.why.title" />
+            </h3>
+            {!isContentVisible[0] ? <AngleDown /> : <AngleUp />}
+          </MenuItem>
+          <MenuContent isVisible={isContentVisible[0]}>
+            <p>
+              <FormattedMessage id="nav.why.text.1" />
+            </p>
+            <p>
+              <FormattedMessage id="nav.why.text.2" />
+            </p>
+            <p>
+              <FormattedMessage id="nav.why.text.3" />
+            </p>
+          </MenuContent>
+          <MenuItem onClick={() => onMenuToggle(1)}>
+            <h3>
+              <FormattedMessage id="nav.secure.title" />
+            </h3>
+            {!isContentVisible[1] ? <AngleDown /> : <AngleUp />}
+          </MenuItem>
+          <MenuContent isVisible={isContentVisible[1]}>
+            <p>
+              <FormattedMessage
+                id="nav.secure.text.1"
+                values={{
+                  github: (
+                    <a
+                      href="https://github.com/FortKnoxster/seedshuffler"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Github
+                    </a>
+                  ),
+                }}
+              />
+            </p>
+          </MenuContent>
+          <MenuItem onClick={() => onMenuToggle(2)}>
+            <h3>
+              <FormattedMessage id="nav.who.title" />
+            </h3>
+            {!isContentVisible[2] ? <AngleDown /> : <AngleUp />}
+          </MenuItem>
+          <MenuContent isVisible={isContentVisible[2]}>
+            <p>
+              <FormattedMessage id="nav.who.text.1" />
+            </p>
+          </MenuContent>
+          <MenuItem onClick={() => onMenuToggle(3)}>
+            <h3>
+              <FormattedMessage id="nav.ex.title" />
+            </h3>
+            {!isContentVisible[3] ? <AngleDown /> : <AngleUp />}
+          </MenuItem>
+          <MenuContent isVisible={isContentVisible[3]}>
+            <p>
+              <FormattedMessage
+                id="nav.ex.text.1"
+                values={{
+                  here: (
+                    <a
+                      href="https://fortknoxster.com/seedshuffler-example"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {intl.formatMessage({ id: 'here' })}
+                    </a>
+                  ),
+                }}
+              />
+            </p>
+          </MenuContent>
+        </Container>
+      </Wrapper>
+      <NavFooter>
+        <a
+          className="button-sm"
+          href="https://fortknoxster.com/SeedShuffler"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FormattedMessage id="footer.learnMore" />
+        </a>
+
+        <h3>Join our community</h3>
+        <SocialIcons>
+          <a
+            className="social-icon"
+            href="https://twitter.com/FortKnoxster"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Twitter />
+          </a>
+          <a
+            className="social-icon"
+            href="https://t.me/FortKnoxster"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Telegram className="social-icon" />
+          </a>
+          <a
+            className="social-icon"
+            href="https://www.reddit.com/r/FortKnoxster/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Reddit className="social-icon" />
+          </a>
+          <a
+            className="social-icon"
+            href="https://github.com/FortKnoxster"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Github className="social-icon" />
+          </a>
+          <a
+            href="mailto:contact@fortknoxster.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FormattedMessage id="contact" />
+          </a>
+        </SocialIcons>
+      </NavFooter>
+    </>
   )
 }
 
@@ -160,4 +216,20 @@ const Dot = styled.div({
   borderRadius: '50%',
   height: 12,
   width: 12,
+})
+
+const NavFooter = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  padding: '0 1rem 1rem 1rem',
+  justifyContent: 'center',
+  paddingTop: 30,
+  gap: 10,
+  borderTop: '2px solid #ccc',
+})
+
+const SocialIcons = styled.div({
+  display: 'flex',
+  //justifyContent: 'center',
+  gap: 20,
 })
