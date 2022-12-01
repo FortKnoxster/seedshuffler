@@ -12,8 +12,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 const navigatorLocale = getNavigatorLocale()
 const supportedLocale = getSupportedLocale(navigatorLocale)
 
-window.onbeforeunload = (e) => {
-  return true
+if (process.env.NODE_ENV === 'production') {
+  window.onbeforeunload = (e) => {
+    return true
+  }
 }
 
 root.render(
@@ -23,9 +25,3 @@ root.render(
     </IntlProvider>
   </React.StrictMode>,
 )
-
-/*
-if (process.env.NODE_ENV !== 'production' && module.hot) {
-  window.onbeforeunload = null
-}
-*/

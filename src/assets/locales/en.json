@@ -41,7 +41,7 @@
   "seed.subtitle": "Self-custody by DieFi",
   "seed.intro.1": "SeedShuffler converts the original 2048 wallet seed phrase word list into a unique seedbook {number} matrix.",
   "seed.intro.2": "Now self-custody is safe, easy and future-proof.",
-  "seed.intro.3": "Save the seedbook anywhere and share it with friends and family. The seedbook is also useless for a bad actor.",
+  "seed.intro.3": "SeedShuffler and DieFi are made by Danish cybersecurity specialists specializing in safeguarding the crypto space.",
   "seed.bullet.1": "Shuffle and generate your personal seedbook.",
   "seed.bullet.2": "Identify the numbers which are corresponding to your original seed phrase words. These numbers are useless for a bad actor.",
   "seed.bullet.3": "Save the seedbook anywhere and share it with friends and family. The seedbook is also useless for a bad actor.",
