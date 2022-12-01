@@ -386,7 +386,10 @@ const Panel = styled.div({
     },
   },
   '@media (max-width: 2200px)': {
-    maxWidth: '55%',
+    width: '65%',
+  },
+  '@media (max-width: 1000px)': {
+    width: '100%',
   },
   '@media (max-width: 768px)': {
     width: '100%',
@@ -441,7 +444,7 @@ const GenerateWrapper = styled.div({
     width: '55%',
   },
   '@media (max-width: 1000px)': {
-    width: '75%',
+    width: '90%',
   },
   '@media (max-width: 768px)': {
     width: '100%',
