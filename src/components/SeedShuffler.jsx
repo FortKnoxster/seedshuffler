@@ -1,16 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
 import styled from '@emotion/styled/macro'
 import { FormattedMessage, useIntl } from 'react-intl'
-import {
-  WL_ENGLISH,
-  APP_BRAND_NAME,
-  PDF_FILE_NAME,
-} from '../constants/variables'
+import { WL_ENGLISH, PDF_FILE_NAME } from '../constants/variables'
 import { shuffleArray } from '../helpers/csprng'
 import Select from 'react-select'
 import { jsPDF } from 'jspdf'
 import autoTable from 'jspdf-autotable'
 import { bip39LanguageOptions } from '../helpers/ui'
+import { isMobile } from '../helpers/utils'
 import logo from '../assets/seedshuffler-logo.png'
 import { NotoSansRegular } from '../assets/fonts/noto-sans/NotoSans-Regular-normal.js'
 //import { MPLUS1 } from '../assets/fonts/mplus1/MPLUS1-normal.js'
@@ -54,9 +51,8 @@ const SeedShuffler = ({}) => {
     }
   }
 
-  function downloadPdf() {
+  async function preparePdf() {
     const doc = new jsPDF()
-
     doc.addFileToVFS('NotoSans-Regular-normal.ttf', NotoSansRegular)
     doc.addFont('NotoSans-Regular-normal.ttf', 'NotoSans-Regular', 'normal')
     doc.setFont('NotoSans-Regular')
@@ -64,31 +60,32 @@ const SeedShuffler = ({}) => {
     doc.addFileToVFS('MPLUS1-normal.ttf', MPLUS1)
     doc.addFont('MPLUS1.ttf', 'MPLUS1', 'normal')
     doc.setFont('MPLUS1')
-    console.log('font size', doc.getFontSize())
     */
 
-    //doc.addSvgAsImage(logo, 60, 5, 79, 13)
+    return doc
+  }
+
+  async function downloadPdf() {
+    const doc = await preparePdf()
 
     doc.addImage(logo, 'PNG', 72, 5, 60, 38)
     doc.setFontSize(10)
     doc.text(intl.formatMessage({ id: 'pdf.intro.1' }), 10, 49)
     doc.text(intl.formatMessage({ id: 'pdf.intro.2' }), 10, 54)
+    /*
+    doc.textWithLink(intl.formatMessage({ id: 'pdf.footer' }), 10, 57, {
+      url: 'https://fortknoxster.com',
+    })
+    */
     const maxCols = 14
-    let y = 25
+
     Object.keys(shuffledWordlist)
       .sort()
       .forEach((letter, j) => {
-        //doc.text(letter, x, y)
-        y += 5
-        //doc.text(shuffledWordlist[letter], 10, y)
-        let text = ''
-
         let colIndex = 1
         let rowIndex = 0
         const rows = []
         shuffledWordlist[letter].forEach(({ word, index }, i) => {
-          //y += 5
-          text += `${word} ${index}  `
           if (colIndex > maxCols) {
             colIndex = 0
             ++rowIndex
@@ -120,27 +117,27 @@ const SeedShuffler = ({}) => {
           )
           colIndex += 2
         })
-        const lineHeight = doc.getLineHeight(text) / doc.internal.scaleFactor
-        const splittedText = doc.splitTextToSize(text, 190)
-        //console.log('splittedText', splittedText)
-        const lines = splittedText.length // splitted text is a string array
-        const blockHeight = lines * lineHeight
-        //console.log('rows', rows)
-        //console.log('shuffledWordlist[letter]', shuffledWordlist[letter])
+
         autoTable(doc, {
-          //head: [[{ content: shuffledWordlist[letter], colSpan: maxCols }]],
           head: [
             [
               {
                 content: letter,
-                colSpan: maxCols,
                 styles: {
-                  halign: 'left',
+                  halign: 'center',
                   cellPadding: 1,
                   font: 'helvetica',
                   fontSize: 11,
                   textColor: '#000000',
                   fontStyle: 'bold',
+                  fillColor: '#f3ba2f',
+                },
+              },
+              {
+                content: '',
+                colSpan: maxCols - 1,
+                styles: {
+                  cellPadding: 1,
                   fillColor: '#f3ba2f',
                 },
               },
@@ -151,18 +148,16 @@ const SeedShuffler = ({}) => {
           margin: 10,
           showHead: 'firstPage',
         })
-
-        //const r = doc.text(splittedText, x, y)
-        if (y >= 265) {
-          y = 5
-          //doc.addPage()
-        } else {
-          y += blockHeight
-        }
-        y += 5
       })
 
-    if (navigator.share) {
+    // Create PDF footer
+    /*
+    doc.autoTable({
+      html: '#pdf-footer',
+    })
+    */
+
+    if (navigator.share && isMobile()) {
       const blob = doc.output('blob', { filename: PDF_FILE_NAME })
       const file = new File([blob], PDF_FILE_NAME, { type: blob.type })
       navigator
@@ -322,6 +317,26 @@ const SeedShuffler = ({}) => {
           )}
         </>
       )}
+
+      <table className="hidden" id="pdf-footer">
+        <tr style={{ backgroundColor: 'white' }}>
+          <td>{intl.formatMessage({ id: 'pdf.footer.1' })}</td>
+        </tr>
+        <tr>
+          <td>{intl.formatMessage({ id: 'pdf.footer.2' })}</td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              href="https://fortknoxster.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {intl.formatMessage({ id: 'signup.link' })}
+            </a>
+          </td>
+        </tr>
+      </table>
     </Container>
   )
 }

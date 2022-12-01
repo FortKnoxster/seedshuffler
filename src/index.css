@@ -315,3 +315,7 @@ a:hover {
     padding: 0 2.6rem;
   }
 }
+
+.hidden {
+  display: none;
+}

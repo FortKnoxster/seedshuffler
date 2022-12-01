@@ -1,3 +1,4 @@
+// Cryptographically secure pseudorandom number generator
 export function randomBytes(bytes) {
   const typedArray = new Uint8Array(bytes)
   return crypto.getRandomValues(typedArray)
