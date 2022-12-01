@@ -46,7 +46,7 @@
   "seed.bullet.2": "Decode the numbers which are corresponding to your original seed phrase words. These numbers are useless for a bad actor.",
   "seed.bullet.3": "Save the seedbook anywhere and share it with friends and family. The seedbook is also useless for a bad actor.",
   "seed.bullet.4": "The numbers can be saved in FortKnoxster DieFi, enabling yourself or designated beneficiaries to access the numbers in case you forget them or, worse case, an emergency/death.",
-  "seed.bullet.5": "Always keep your seedbook and unique numbers separate at all times, as possessing both can identify your original wallet seed phrase.",
+  "seed.bullet.5": "Always keep your seedbook and unique numbers separate at all times, as possessing both can decode your original wallet seed phrase.",
   "seed.yourSeed": "Your unique seed matrix:",
   "seed.button.generate": "Generate Seedbook",
   "seed.button.download": "Download Your Seedbook",
