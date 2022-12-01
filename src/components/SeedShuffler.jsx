@@ -281,7 +281,7 @@ const SeedShuffler = ({}) => {
           <Panel>
             <button
               ref={buttonRef}
-              className="button"
+              className="button button-inverse"
               disabled={!wordlist}
               onClick={() => downloadPdf()}
             >

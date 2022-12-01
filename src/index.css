@@ -214,6 +214,15 @@ a:hover {
   filter: brightness(90%);
 }
 
+.button-inverse {
+  color: var(--theme-brand);
+  background-color: #000000;
+}
+
+.button-inverse:hover {
+  filter: brightness(60%);
+}
+
 .button-sm {
   background-color: var(--theme-brand);
   border-radius: 8px;
