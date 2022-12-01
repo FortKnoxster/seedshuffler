@@ -278,10 +278,6 @@ a:hover {
   text-decoration: none;
 }
 
-.button-icon:hover {
-  background-color: var(--theme-brand);
-}
-
 .button-icon,
 .button-icon:active,
 .button-icon:visited {
@@ -296,6 +292,10 @@ a:hover {
 .button-icon svg {
   color: var(--theme-brand);
   z-index: 1;
+}
+
+.button-icon:hover {
+  background-color: var(--theme-brand);
 }
 
 .button-icon:hover svg {

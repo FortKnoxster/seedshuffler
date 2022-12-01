@@ -64,3 +64,27 @@ export const Reddit = (props) => (
 export const Github = (props) => (
   <FontAwesomeIcon icon={brands('github')} {...props} />
 )
+
+export const Discord = (props) => (
+  <FontAwesomeIcon icon={brands('Discord')} {...props} />
+)
+
+export const Tiktok = (props) => (
+  <FontAwesomeIcon icon={brands('tiktok')} {...props} />
+)
+
+export const Instagram = (props) => (
+  <FontAwesomeIcon icon={brands('instagram')} {...props} />
+)
+
+export const Facebook = (props) => (
+  <FontAwesomeIcon icon={brands('facebook')} {...props} />
+)
+
+export const WhatsApp = (props) => (
+  <FontAwesomeIcon icon={brands('whatsapp')} {...props} />
+)
+
+export const Linkedin = (props) => (
+  <FontAwesomeIcon icon={brands('linkedin')} {...props} />
+)

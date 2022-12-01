@@ -38,5 +38,8 @@
   "pdf.intro.2": "The seedbook is useless without your unique seed matrix numbers. Warning: Never store both at the same place.",
   "pdf.footer.1": "Feel free to share your seedbook with friends and family, as you can only decode your seed phrase with the unique numbers you identified that corresponded to your original seed phrase words.",
   "pdf.footer.2": "You can store the unique numbers in the DieFi crypto recovery and inheritance platform, click the link below, and you will get a 10% discount.",
-  "signup.link": "Sign up to FortKnoxster DieFi."
+  "signup.link": "Sign up to FortKnoxster DieFi.",
+  "social.intro": "Spread the word to your crypto friends",
+  "social.spreadTheWord": "Spread the word on {social}",
+  "social.shareText": "Check out #SeedShuffler the smart self-custody solution by #DieFi."
 }
