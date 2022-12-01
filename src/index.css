@@ -61,7 +61,7 @@ p {
 h1 {
   font-size: calc(48px + 5vmin);
   margin-bottom: 30px;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 h1.span {
@@ -98,13 +98,15 @@ h3 {
   margin-bottom: 5px;
 }
 
-p.intro-text {
+p.intro-text,
+ol li.intro-text {
   font-size: calc(14px + 1.2vmin);
   line-height: 34px;
 }
 
 @media (max-width: 768px) {
-  p.intro-text {
+  p.intro-text,
+  ol li.intro-text {
     font-size: calc(12px + 1.2vmin);
     line-height: 28px;
   }
@@ -128,6 +130,7 @@ p.intro-text {
   h1 {
     font-size: calc(42px + 4vmin);
     margin-bottom: 10px;
+    margin-top: 20px;
   }
   h2.title {
     font-size: calc(18px + 2vmin);

@@ -189,27 +189,36 @@ const SeedShuffler = ({}) => {
         <FormattedMessage
           id="seed.intro.1"
           values={{
-            numbers: (
+            number: (
               <span className="underline">
-                {intl.formatMessage({ id: 'numbers' })}
+                {intl.formatMessage({ id: 'number' })}
               </span>
             ),
           }}
         />
       </p>
+      <Ol>
+        <li className="intro-text">
+          <FormattedMessage id="seed.bullet.1" />
+        </li>
+        <li className="intro-text">
+          <FormattedMessage id="seed.bullet.2" />
+        </li>
+        <li className="intro-text">
+          <FormattedMessage id="seed.bullet.3" />
+        </li>
+        <li className="intro-text">
+          <FormattedMessage id="seed.bullet.4" />
+        </li>
+        <li className="intro-text">
+          <FormattedMessage id="seed.bullet.5" />
+        </li>
+      </Ol>
       <p className="intro-text">
         <FormattedMessage id="seed.intro.2" />
       </p>
       <p className="intro-text">
         <FormattedMessage id="seed.intro.3" />
-      </p>
-      <p className="intro-text">
-        <FormattedMessage
-          id="seed.intro.4"
-          values={{
-            brandName: APP_BRAND_NAME,
-          }}
-        />
       </p>
       {!Boolean(shuffledWordlist) && (
         <GenerateWrapper>
@@ -326,6 +335,25 @@ const Container = styled.div({
   },
   '@media (max-width: 768px)': {
     width: '90%',
+  },
+})
+
+const Ol = styled.ol({
+  maxWidth: '55%',
+  minWidth: '55%',
+  margin: '10px 0',
+  paddingLeft: 45,
+  '@media (max-width: 2200px)': {
+    maxWidth: '75%',
+    minWidth: '75%',
+  },
+  '@media (max-width: 768px)': {
+    maxWidth: '100%',
+    marginLeft: 0,
+    paddingLeft: 15,
+  },
+  li: {
+    marginBottom: 10,
   },
 })
 
