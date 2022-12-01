@@ -28,6 +28,6 @@ export const WL_KOREAN_NAME = '한국어'
 export const WL_PORTUGUESE_NAME = 'Português'
 export const WL_SPANISH_NAME = 'Español'
 
-export const PDF_FILE_NAME = 'My_SeedShuffler_Matrix.pdf'
+export const PDF_FILE_NAME = 'My_SeedShuffler_Seedbook_Matrix.pdf'
 
 export const MENU_HIDE_ON_WIDTH = 768

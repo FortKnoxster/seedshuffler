@@ -162,7 +162,25 @@ const SeedShuffler = ({}) => {
         y += 5
       })
 
-    doc.save(PDF_FILE_NAME)
+    if (navigator.share) {
+      const blob = doc.output('blob', { filename: PDF_FILE_NAME })
+      const file = new File([blob], PDF_FILE_NAME, { type: blob.type })
+      navigator
+        .share({
+          title: 'My SeedShuffler Seedbook Matrix',
+          url: 'https://seedshuffler.com',
+          files: [file],
+        })
+        .then(() => {
+          console.log('Share success!')
+        })
+        .catch((err) => {
+          console.error(err)
+          doc.save(PDF_FILE_NAME)
+        })
+    } else {
+      doc.save(PDF_FILE_NAME)
+    }
   }
 
   function handleLanguageChange(e) {
