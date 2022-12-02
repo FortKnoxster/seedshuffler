@@ -176,6 +176,9 @@ const SocialIcons = styled.div({
 
 const ButtonIcon = styled.a({
   padding: '0.6rem',
+  '& svg': {
+    color: '#000000',
+  },
   '&:hover, &:active, &:visited': {
     padding: '0.6rem',
   },
