@@ -242,6 +242,7 @@ const SeedShuffler = ({}) => {
       <p className="intro-text">
         <FormattedMessage id="seed.intro.3" />
       </p>
+
       {!Boolean(shuffledWordlist) && (
         <GenerateWrapper>
           <SelectWrapper>
@@ -272,6 +273,15 @@ const SeedShuffler = ({}) => {
           >
             <FormattedMessage id="seed.button.generate" />
           </button>
+          <h2 className="subtitle">
+            <FormattedMessage id="seed.disclaimer.title" />
+          </h2>
+          <p className="intro-text">
+            <FormattedMessage id="seed.disclaimer.text.1" />
+          </p>
+          <p className="intro-text">
+            <FormattedMessage id="seed.disclaimer.text.2" />
+          </p>
         </GenerateWrapper>
       )}
       {Boolean(0) && (
@@ -477,6 +487,14 @@ const GenerateWrapper = styled.div({
   '@media (max-width: 768px)': {
     width: '100%',
     maxWidth: '100%',
+  },
+  h2: {
+    paddingTop: 60,
+    paddingBottom: 20,
+  },
+  p: {
+    width: '100%',
+    minWidth: '100%',
   },
 })
 

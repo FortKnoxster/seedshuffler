@@ -10,6 +10,13 @@
   --w-menu: 330px;
 }
 
+:root[data-theme='dark'],
+[data-theme][data-theme='dark'] {
+  --theme-background: #202022;
+  --theme-nav-background: #2b2b2b;
+  --theme-font: #8f8f8f;
+}
+
 html,
 body {
   height: 100%;
@@ -284,12 +291,10 @@ ol li::marker {
   padding: 1rem;
   border: none;
   cursor: pointer;
-  z-index: 2;
 }
 
 .button-icon svg {
   color: var(--theme-brand);
-  z-index: 1;
 }
 
 .button-icon:hover {

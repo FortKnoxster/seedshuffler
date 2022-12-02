@@ -1,10 +1,17 @@
 import { useState, useRef } from 'react'
 import styled from '@emotion/styled/macro'
 import logo from './assets/seedshuffler-logo.svg'
+import logoDark from './assets/seedshuffler-logo-dark.svg'
 import SeedShuffler from './components/SeedShuffler'
 import NavContent from './components/NavContent'
 import AppFooter from './components/AppFooter'
-import { MenuToggle } from './helpers/ui'
+import {
+  MenuToggle,
+  Dark,
+  Light,
+  setDarkMode,
+  setLightMode,
+} from './helpers/ui'
 import { useWindowSize } from './hooks/useWindowSize'
 import { MENU_HIDE_ON_WIDTH } from './constants/variables'
 import useOnClickOutside from './hooks/useOnClickOutside'
@@ -15,6 +22,7 @@ function App() {
   const [isMenuVisible, setIsMenuVisible] = useState(
     MENU_HIDE_ON_WIDTH < size.width,
   )
+  const [isDarkMode, setIsDarkMode] = useState(false)
 
   function toggleMenu(e) {
     e.preventDefault()
@@ -23,6 +31,16 @@ function App() {
       setIsMenuVisible(false)
     } else {
       setIsMenuVisible(true)
+    }
+  }
+
+  function toggleDarkMode() {
+    if (isDarkMode) {
+      setLightMode()
+      setIsDarkMode(false)
+    } else {
+      setDarkMode()
+      setIsDarkMode(true)
     }
   }
 
@@ -43,12 +61,12 @@ function App() {
     <AppContainer>
       <AppMenu ref={menuRef} className={isMenuVisible ? 'open' : ''}>
         <AppLogo>
-          <Img src={logo} alt="SeedShuffler" />
+          <Img src={isDarkMode ? logoDark : logo} alt="SeedShuffler" />
         </AppLogo>
         <NavContent />
       </AppMenu>
       <AppConent className={isMenuVisible ? 'open' : ''}>
-        {size.width < MENU_HIDE_ON_WIDTH && (
+        {size.width < MENU_HIDE_ON_WIDTH ? (
           <MobileHeader>
             <Img src={logo} alt="SeedShuffler" />
             <button
@@ -59,6 +77,18 @@ function App() {
               <MenuToggle size="lg" />
             </button>
           </MobileHeader>
+        ) : (
+          <Header>
+            {isDarkMode ? (
+              <LightMode className="button-icon" onClick={toggleDarkMode}>
+                <Light size="xl" />
+              </LightMode>
+            ) : (
+              <DarkMode className="button-icon" onClick={toggleDarkMode}>
+                <Dark size="xl" />
+              </DarkMode>
+            )}
+          </Header>
         )}
         <SeedShuffler />
         <AppFooter />
@@ -136,5 +166,25 @@ const MobileHeader = styled.div({
   [Img]: {
     width: '60%',
     margin: 0,
+  },
+})
+
+const Header = styled(MobileHeader)({
+  justifyContent: 'flex-end',
+})
+
+const DarkMode = styled.button({
+  width: 52,
+  height: 52,
+  '& svg': {
+    color: '#000000',
+  },
+})
+
+const LightMode = styled(DarkMode)({
+  width: 52,
+  height: 52,
+  '& svg': {
+    color: 'var(--theme-brand)',
   },
 })

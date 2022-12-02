@@ -37,12 +37,22 @@ export const bip39LanguageOptions = [
   { value: WL_PORTUGUESE, label: WL_PORTUGUESE_NAME },
 ]
 
+export const pdfFonts = []
+
 export const AngleDown = (props) => (
   <FontAwesomeIcon icon={solid('angle-down')} {...props} />
 )
 
 export const AngleUp = (props) => (
   <FontAwesomeIcon icon={solid('angle-up')} {...props} />
+)
+
+export const Dark = (props) => (
+  <FontAwesomeIcon icon={solid('moon')} {...props} />
+)
+
+export const Light = (props) => (
+  <FontAwesomeIcon icon={solid('lightbulb')} {...props} />
 )
 
 export const MenuToggle = (props) => (
@@ -92,3 +102,13 @@ export const WhatsApp = (props) => (
 export const Linkedin = (props) => (
   <FontAwesomeIcon icon={brands('linkedin')} {...props} />
 )
+
+export function setDarkMode() {
+  document.querySelector('html').setAttribute('data-theme', 'dark')
+  document.querySelector('body').setAttribute('class', 'ui-dark')
+}
+
+export function setLightMode() {
+  document.querySelector('html').removeAttribute('data-theme')
+  document.querySelector('body').removeAttribute('class')
+}
