@@ -347,23 +347,25 @@ const SeedShuffler = ({}) => {
       )}
 
       <table className="hidden" id="pdf-footer">
-        <tr>
-          <td>{intl.formatMessage({ id: 'pdf.footer.1' })}</td>
-        </tr>
-        <tr>
-          <td>{intl.formatMessage({ id: 'pdf.footer.2' })}</td>
-        </tr>
-        <tr>
-          <td>
-            <a
-              href="https://fortknoxster.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {intl.formatMessage({ id: 'signup.link' })}
-            </a>
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>{intl.formatMessage({ id: 'pdf.footer.1' })}</td>
+          </tr>
+          <tr>
+            <td>{intl.formatMessage({ id: 'pdf.footer.2' })}</td>
+          </tr>
+          <tr>
+            <td>
+              <a
+                href="https://fortknoxster.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {intl.formatMessage({ id: 'signup.link' })}
+              </a>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </Container>
   )
