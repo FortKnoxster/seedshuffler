@@ -5,4 +5,4 @@
   Content-Security-Policy: default-src 'self' https://seedshuffler.com; style-src 'unsafe-inline' https://seedshuffler.com;
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload;
   Access-Control-Allow-Origin: https://seedshuffler.com;
-  Permissions-Policy: geolocation 'none'; microphone 'none'; camera 'none';
+  Permissions-Policy: geolocation=(), microphone=(), camera=();
