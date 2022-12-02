@@ -12,6 +12,7 @@ const NavContent = ({ isVisible }) => {
     false,
     false,
     false,
+    false,
   ])
 
   async function onMenuToggle(index) {
@@ -66,24 +67,37 @@ const NavContent = ({ isVisible }) => {
               />
             </p>
           </MenuContent>
+
           <MenuItem onClick={() => onMenuToggle(2)}>
             <h3>
-              <FormattedMessage id="nav.who.title" />
+              <FormattedMessage id="nav.compl.title" />
             </h3>
             {!isContentVisible[2] ? <AngleDown /> : <AngleUp />}
           </MenuItem>
           <MenuContent isVisible={isContentVisible[2]}>
             <p>
-              <FormattedMessage id="nav.who.text.1" />
+              <FormattedMessage id="nav.compl.text.1" />
             </p>
           </MenuContent>
+
           <MenuItem onClick={() => onMenuToggle(3)}>
             <h3>
-              <FormattedMessage id="nav.ex.title" />
+              <FormattedMessage id="nav.who.title" />
             </h3>
             {!isContentVisible[3] ? <AngleDown /> : <AngleUp />}
           </MenuItem>
           <MenuContent isVisible={isContentVisible[3]}>
+            <p>
+              <FormattedMessage id="nav.who.text.1" />
+            </p>
+          </MenuContent>
+          <MenuItem onClick={() => onMenuToggle(4)}>
+            <h3>
+              <FormattedMessage id="nav.ex.title" />
+            </h3>
+            {!isContentVisible[4] ? <AngleDown /> : <AngleUp />}
+          </MenuItem>
+          <MenuContent isVisible={isContentVisible[4]}>
             <p>
               <FormattedMessage
                 id="nav.ex.text.1"
