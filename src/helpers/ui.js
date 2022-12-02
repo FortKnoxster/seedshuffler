@@ -103,12 +103,22 @@ export const Linkedin = (props) => (
   <FontAwesomeIcon icon={brands('linkedin')} {...props} />
 )
 
+export function checkDarkTheme() {
+  if (localStorage.getItem('theme')) {
+    setDarkMode()
+    return true
+  }
+  return false
+}
+
 export function setDarkMode() {
   document.querySelector('html').setAttribute('data-theme', 'dark')
   document.querySelector('body').setAttribute('class', 'ui-dark')
+  localStorage.setItem('theme', 'dark')
 }
 
 export function setLightMode() {
   document.querySelector('html').removeAttribute('data-theme')
   document.querySelector('body').removeAttribute('class')
+  localStorage.removeItem('theme')
 }

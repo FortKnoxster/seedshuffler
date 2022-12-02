@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import styled from '@emotion/styled/macro'
 import logo from './assets/seedshuffler-logo.svg'
 import logoDark from './assets/seedshuffler-logo-dark.svg'
@@ -9,6 +9,7 @@ import {
   MenuToggle,
   Dark,
   Light,
+  checkDarkTheme,
   setDarkMode,
   setLightMode,
 } from './helpers/ui'
@@ -23,6 +24,10 @@ function App() {
     MENU_HIDE_ON_WIDTH < size.width,
   )
   const [isDarkMode, setIsDarkMode] = useState(false)
+
+  useEffect(() => {
+    if (checkDarkTheme()) setIsDarkMode(true)
+  }, [])
 
   function toggleMenu(e) {
     e.preventDefault()
