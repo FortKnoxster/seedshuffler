@@ -190,6 +190,15 @@ const SeedShuffler = ({}) => {
     }, 250)
   }
 
+  function reshuffleSeedMatrix() {
+    if (
+      window.confirm(intl.formatMessage({ id: 'seed.alert.confirmReshuffle' }))
+    ) {
+      setShuffledWordlist(null)
+      generateSeedMatric()
+    }
+  }
+
   return (
     <Container>
       <h1>
@@ -291,6 +300,9 @@ const SeedShuffler = ({}) => {
                 <FormattedMessage id="seed.showSeed" />
               </ShowSeedMatrix>
             )}
+            <ReshuffleSeedMatrix onClick={() => reshuffleSeedMatrix()}>
+              <FormattedMessage id="seed.reshuffle" />
+            </ReshuffleSeedMatrix>
           </Panel>
 
           {showSeed && (
@@ -492,4 +504,8 @@ const ShowSeedMatrix = styled.div({
     marginTop: 20,
     marginBottom: 10,
   },
+})
+
+const ReshuffleSeedMatrix = styled(ShowSeedMatrix)({
+  marginTop: 20,
 })

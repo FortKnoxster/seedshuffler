@@ -29,6 +29,8 @@
   "seed.yourSeed": "Your unique seed matrix:",
   "seed.button.generate": "Generate Seedbook",
   "seed.button.download": "Download Your Seedbook",
+  "seed.reshuffle": "Reshuffle",
+  "seed.alert.confirmReshuffle": "Please confirm you wish to reshuffle Seedbook.\nThe previous generated Seedbook will be replaced.\n\nPress OK to confirm or Cancel.",
   "seed.showSeed": "Show Seedbook",
   "seed.hideSeed": "Hide Seedbook",
   "seed.modal.1": "Download your Seedbook and feel free to share it with friends and family, as you can only decode your seed phrase with the unique numbers you identified that corresponded to your original seed phrase words.",

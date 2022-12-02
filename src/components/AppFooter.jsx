@@ -30,8 +30,6 @@ const AppFooter = ({}) => {
 
   const redditString = `https://www.reddit.com/submit?url=${url}&title=${shareMessage}`
 
-  //const instagramString = `https://www.instagram.com?url=${url}`
-
   const linkedinString = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`
 
   const mailToString = `mailto:?subject=${shareMessage}&body=%0D%0A${url}%0D%0A`
