@@ -26,7 +26,7 @@ const AppFooter = ({}) => {
 
   const twitterString = `https://twitter.com/intent/tweet?text=${shareMessage}%20${url}`
 
-  const whatsAppString = `https://wa.me/?text=${shareMessage}%5Cn%20${url}`
+  const whatsAppString = `https://wa.me/?text=${shareMessage}%20${url}`
 
   const redditString = `https://www.reddit.com/submit?url=${url}&title=${shareMessage}`
 
