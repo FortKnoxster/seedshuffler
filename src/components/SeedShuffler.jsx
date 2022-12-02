@@ -239,9 +239,6 @@ const SeedShuffler = ({}) => {
       <p className="intro-text">
         <FormattedMessage id="seed.intro.2" />
       </p>
-      <p className="intro-text">
-        <FormattedMessage id="seed.intro.3" />
-      </p>
 
       {!Boolean(shuffledWordlist) && (
         <GenerateWrapper>
