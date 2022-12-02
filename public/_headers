@@ -3,3 +3,5 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer
   Content-Security-Policy: default-src 'self' https://seedshuffler.com; style-src 'unsafe-inline' https://seedshuffler.com;
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload;
+  Access-Control-Allow-Origin: https://seedshuffler.com;
