@@ -1,6 +1,5 @@
 :root {
   --theme-background: #f5f5f7;
-  /*--theme-brand: #5c58bb;*/
   --theme-brand: #f3ba2f;
   --theme-green: #8cb531;
   --theme-nav-background: #ffffff;
@@ -67,12 +66,6 @@ h1 {
 h1.span {
   display: block;
   font-size: calc(28px + 2vmin);
-}
-
-h1.title {
-  color: var(--theme-green);
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 h2 {
@@ -174,6 +167,11 @@ a:hover {
 
 .underline {
   text-decoration: underline;
+}
+
+ol li::marker {
+  color: var(--theme-brand);
+  font-weight: bold;
 }
 
 .button-link {

@@ -375,7 +375,7 @@ const Ol = styled.ol({
   maxWidth: '55%',
   minWidth: '55%',
   margin: '10px 0',
-  paddingLeft: 45,
+  paddingLeft: 55,
   '@media (max-width: 2200px)': {
     maxWidth: '75%',
     minWidth: '75%',
@@ -387,6 +387,7 @@ const Ol = styled.ol({
   },
   li: {
     marginBottom: 10,
+    paddingLeft: 10,
   },
 })
 
