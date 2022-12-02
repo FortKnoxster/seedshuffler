@@ -124,10 +124,12 @@ const NavContent = ({ isVisible }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FormattedMessage id="footer.learnMore" />
+          <FormattedMessage id="footer.joinCommunity" />
         </a>
 
-        <h3>Join our community</h3>
+        <h3>
+          <FormattedMessage id="footer.joinCommunity" />
+        </h3>
         <SocialIcons>
           <a
             className="social-icon"
@@ -203,6 +205,9 @@ const MenuItem = styled.div({
   position: 'relative',
   ':hover': {
     backgroundColor: 'var(--theme-nav-item-background)',
+  },
+  h3: {
+    marginBottom: 10,
   },
 })
 

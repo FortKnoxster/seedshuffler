@@ -68,14 +68,25 @@ function App() {
       <AppConent className={isMenuVisible ? 'open' : ''}>
         {size.width < MENU_HIDE_ON_WIDTH ? (
           <MobileHeader>
-            <Img src={logo} alt="SeedShuffler" />
-            <button
-              id="close-menu-button"
-              className="button-icon"
-              onClick={toggleMenu}
-            >
-              <MenuToggle size="lg" />
-            </button>
+            <Img src={isDarkMode ? logoDark : logo} alt="SeedShuffler" />
+            <div className="header-buttons">
+              {isDarkMode ? (
+                <LightMode className="button-icon" onClick={toggleDarkMode}>
+                  <Light size="xl" />
+                </LightMode>
+              ) : (
+                <DarkMode className="button-icon" onClick={toggleDarkMode}>
+                  <Dark size="xl" />
+                </DarkMode>
+              )}
+              <button
+                id="close-menu-button"
+                className="button-icon"
+                onClick={toggleMenu}
+              >
+                <MenuToggle size="lg" />
+              </button>
+            </div>
           </MobileHeader>
         ) : (
           <Header>
@@ -167,6 +178,13 @@ const MobileHeader = styled.div({
     width: '60%',
     margin: 0,
   },
+  '.header-buttons': {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: 10,
+    alignItems: 'center',
+    alignContent: 'center',
+  },
 })
 
 const Header = styled(MobileHeader)({
@@ -174,16 +192,16 @@ const Header = styled(MobileHeader)({
 })
 
 const DarkMode = styled.button({
-  width: 52,
-  height: 52,
+  width: 49,
+  height: 49,
   '& svg': {
     color: '#000000',
   },
 })
 
 const LightMode = styled(DarkMode)({
-  width: 52,
-  height: 52,
+  width: 49,
+  height: 49,
   '& svg': {
     color: 'var(--theme-brand)',
   },

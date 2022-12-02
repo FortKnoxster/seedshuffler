@@ -474,7 +474,7 @@ const WordBox = styled.code({
   height: 280,
   transition: 'transform 100ms ease-in',
   backgroundColor: 'var(--theme-wordbox-background)',
-  color: '#2e2e2e',
+  //color: '#2e2e2e',
   overflow: 'auto',
   textAlign: 'left',
   width: '90%',

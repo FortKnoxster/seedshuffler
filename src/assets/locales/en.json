@@ -40,6 +40,7 @@
   "seed.disclaimer.text.1": "You never type in your wallet seed phrase anywhere using SeedShuffler. The tool is a read-only application and can be used offline as well.",
   "seed.disclaimer.text.2": "Air gap security solution. 100% open source. No 3rd-party scripts. No tracking cookies. No charge. No BS.",
   "footer.learnMore": "Learn more",
+  "footer.joinCommunity": "Join our community",
   "pdf.intro.1": "This is your personal and 100% unique Seedbook. Feel free to store it anywhere and save it with friends and family.",
   "pdf.intro.2": "The Seedbook is useless without your unique seed matrix numbers. Warning: Never store both at the same place.",
   "pdf.footer.1": "Feel free to share your Seedbook with friends and family, as you can only decode your seed phrase with the unique numbers you identified that corresponded to your original seed phrase words.",
