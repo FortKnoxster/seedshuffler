@@ -347,7 +347,7 @@ const SeedShuffler = ({}) => {
       )}
 
       <table className="hidden" id="pdf-footer">
-        <tr style={{ backgroundColor: 'white' }}>
+        <tr>
           <td>{intl.formatMessage({ id: 'pdf.footer.1' })}</td>
         </tr>
         <tr>
