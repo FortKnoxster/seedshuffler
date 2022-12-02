@@ -6,10 +6,9 @@ import {
   Telegram,
   Reddit,
   Facebook,
-  Instagram,
-  Tiktok,
   WhatsApp,
   Linkedin,
+  Envelope,
 } from '../helpers/ui'
 
 // eslint-disable-next-line no-empty-pattern
@@ -31,11 +30,12 @@ const AppFooter = ({}) => {
 
   const redditString = `https://www.reddit.com/submit?url=${url}&title=${shareMessage}`
 
-  const instagramString = `https://www.instagram.com?url=${url}`
+  //const instagramString = `https://www.instagram.com?url=${url}`
 
   const linkedinString = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`
 
-  console.log(shareMessage)
+  const mailToString = `mailto:?subject=${shareMessage}&body=%0D%0A${url}%0D%0A`
+
   return (
     <Container>
       <p className="intro-text">
@@ -68,18 +68,6 @@ const AppFooter = ({}) => {
         </ButtonIcon>
         <ButtonIcon
           className="button-icon"
-          href="https://twitter.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          title={intl.formatMessage(
-            { id: 'social.spreadTheWord' },
-            { social: 'TikTok' },
-          )}
-        >
-          <Tiktok size="lg" />
-        </ButtonIcon>
-        <ButtonIcon
-          className="button-icon"
           href={whatsAppString}
           target="_blank"
           rel="noopener noreferrer"
@@ -90,30 +78,7 @@ const AppFooter = ({}) => {
         >
           <WhatsApp size="lg" />
         </ButtonIcon>
-        <ButtonIcon
-          className="button-icon"
-          href={linkedinString}
-          target="_blank"
-          rel="noopener noreferrer"
-          title={intl.formatMessage(
-            { id: 'social.spreadTheWord' },
-            { social: 'Linkedin' },
-          )}
-        >
-          <Linkedin size="lg" />
-        </ButtonIcon>
-        <ButtonIcon
-          className="button-icon"
-          href={instagramString}
-          target="_blank"
-          rel="noopener noreferrer"
-          title={intl.formatMessage(
-            { id: 'social.spreadTheWord' },
-            { social: 'Instagram' },
-          )}
-        >
-          <Instagram size="lg" />
-        </ButtonIcon>
+
         <ButtonIcon
           className="button-icon"
           href={facebookString}
@@ -137,6 +102,30 @@ const AppFooter = ({}) => {
           )}
         >
           <Reddit size="lg" />
+        </ButtonIcon>
+        <ButtonIcon
+          className="button-icon"
+          href={linkedinString}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={intl.formatMessage(
+            { id: 'social.spreadTheWord' },
+            { social: 'Linkedin' },
+          )}
+        >
+          <Linkedin size="lg" />
+        </ButtonIcon>
+        <ButtonIcon
+          className="button-icon"
+          href={mailToString}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={intl.formatMessage(
+            { id: 'social.spreadTheWord' },
+            { social: 'Email' },
+          )}
+        >
+          <Envelope size="lg" />
         </ButtonIcon>
       </SocialIcons>
       <p className="disclaimer">

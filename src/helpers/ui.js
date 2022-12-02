@@ -49,6 +49,10 @@ export const MenuToggle = (props) => (
   <FontAwesomeIcon icon={solid('bars')} {...props} />
 )
 
+export const Envelope = (props) => (
+  <FontAwesomeIcon icon={solid('envelope')} {...props} />
+)
+
 export const Twitter = (props) => (
   <FontAwesomeIcon icon={brands('twitter')} {...props} />
 )
