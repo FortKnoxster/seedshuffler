@@ -101,14 +101,14 @@ h3 {
 p.intro-text,
 ol li.intro-text {
   font-size: calc(14px + 1.2vmin);
-  line-height: 34px;
+  line-height: 30px;
 }
 
 @media (max-width: 768px) {
   p.intro-text,
   ol li.intro-text {
     font-size: calc(12px + 1.2vmin);
-    line-height: 28px;
+    line-height: 22px;
   }
 }
 

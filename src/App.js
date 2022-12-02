@@ -125,9 +125,6 @@ const AppLogo = styled.div({
 const Img = styled.img({
   width: '100%',
   margin: '20px 5px 20px 0',
-  '@media (max-width: 768px)': {
-    width: '50%',
-  },
 })
 
 const MobileHeader = styled.div({
@@ -135,10 +132,9 @@ const MobileHeader = styled.div({
   justifyContent: 'space-between',
   alignItems: 'center',
   width: '100%',
-  padding: '7px 5px',
+  padding: '10px 7px',
   [Img]: {
-    width: 120,
-    marginBottom: 0,
-    marginRight: 0,
+    width: '60%',
+    margin: 0,
   },
 })
