@@ -10,6 +10,7 @@
   --theme-link: var(--theme-brand);
   --theme-social-icons: #000000;
   --theme-social-icons-hover: var(--theme-brand);
+  --theme-dropdown-background: var(--theme-nav-background);
   --w-menu: 330px;
 }
 

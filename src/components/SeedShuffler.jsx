@@ -250,14 +250,38 @@ const SeedShuffler = ({}) => {
               value={bip39LanguageOptions.find((o) => o.value === language)}
               onChange={handleLanguageChange}
               styles={{
-                control: (baseStyles, state) => ({
-                  ...baseStyles,
+                control: (styles, state) => ({
+                  ...styles,
                   border: `2px solid var(--theme-brand)`,
+                  borderColor: 'var(--theme-brand)',
+                  boxShadow: 'none',
                   '&:hover': {
                     borderColor: 'var(--theme-brand)',
                   },
                   '&:focus': {
                     border: `2px solid var(--theme-brand)`,
+                  },
+                  backgroundColor: 'var(--theme-dropdown-background)',
+                }),
+                singleValue: (styles) => ({
+                  ...styles,
+                  color: 'var(--theme-font)',
+                }),
+                menu: (styles) => ({
+                  ...styles,
+                  backgroundColor: 'var(--theme-dropdown-background)',
+                  border: `2px solid var(--theme-brand)`,
+                }),
+                option: (styles) => ({
+                  ...styles,
+                  backgroundColor: 'inherit',
+                  cursor: 'pointer',
+                  color: 'var(--theme-font)',
+                  //fontWeight: 400,
+                  //fontSize: '1.25rem',
+                  '&:hover': {
+                    backgroundColor: 'var(--theme-brand)',
+                    color: '#ffffff',
                   },
                 }),
               }}
