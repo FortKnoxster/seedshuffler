@@ -23,7 +23,7 @@ function App() {
   const [isMenuVisible, setIsMenuVisible] = useState(
     MENU_HIDE_ON_WIDTH < size.width,
   )
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(true)
 
   useEffect(() => {
     if (checkDarkTheme()) setIsDarkMode(true)

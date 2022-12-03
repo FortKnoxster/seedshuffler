@@ -104,11 +104,13 @@ export const Linkedin = (props) => (
 )
 
 export function checkDarkTheme() {
-  if (localStorage.getItem('theme')) {
+  if (localStorage.getItem('theme') === 'light') {
+    setLightMode()
+    return false
+  } else {
     setDarkMode()
     return true
   }
-  return false
 }
 
 export function setDarkMode() {
@@ -120,5 +122,5 @@ export function setDarkMode() {
 export function setLightMode() {
   document.querySelector('html').removeAttribute('data-theme')
   document.querySelector('body').removeAttribute('class')
-  localStorage.removeItem('theme')
+  localStorage.setItem('theme', 'light')
 }
