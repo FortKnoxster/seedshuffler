@@ -552,7 +552,7 @@ const SelectWrapper = styled.div({
 
 const ShowSeedMatrix = styled.div({
   textDecoration: 'underline',
-  color: 'var(--theme-brand)',
+  color: 'var(--theme-reshuffle-actions)',
   textAlign: 'center',
   cursor: 'pointer',
   marginTop: 40,

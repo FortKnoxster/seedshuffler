@@ -11,6 +11,7 @@
   --theme-social-icons: #000000;
   --theme-social-icons-hover: var(--theme-brand);
   --theme-dropdown-background: var(--theme-nav-background);
+  --theme-reshuffle-actions: var(--theme-font);
   --w-menu: 330px;
 }
 
@@ -24,6 +25,7 @@
   --theme-title: var(--theme-brand);
   --theme-social-icons: var(--theme-brand);
   --theme-social-icons-hover: #000000;
+  --theme-reshuffle-actions: var(--theme-brand);
 }
 
 html,
