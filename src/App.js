@@ -26,7 +26,7 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(true)
 
   useEffect(() => {
-    if (checkDarkTheme()) setIsDarkMode(true)
+    setIsDarkMode(checkDarkTheme())
   }, [])
 
   function toggleMenu(e) {
