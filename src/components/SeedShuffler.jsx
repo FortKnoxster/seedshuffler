@@ -510,6 +510,7 @@ const WordBox = styled.code({
   },
   h3: {
     margin: '0 0 10px 0',
+    color: 'var(--theme-brand)',
     padding: 0,
   },
 })
@@ -551,6 +552,7 @@ const SelectWrapper = styled.div({
 
 const ShowSeedMatrix = styled.div({
   textDecoration: 'underline',
+  color: 'var(--theme-brand)',
   textAlign: 'center',
   cursor: 'pointer',
   marginTop: 40,
