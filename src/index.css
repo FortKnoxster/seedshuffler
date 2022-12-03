@@ -8,6 +8,8 @@
   --theme-font: #555555;
   --theme-title: var(--theme-font);
   --theme-link: var(--theme-brand);
+  --theme-social-icons: #000000;
+  --theme-social-icons-hover: var(--theme-brand);
   --w-menu: 330px;
 }
 
@@ -19,6 +21,8 @@
   --theme-wordbox-background: #2b2b2b;
   --theme-font: #8f8f8f;
   --theme-title: var(--theme-brand);
+  --theme-social-icons: var(--theme-brand);
+  --theme-social-icons-hover: #000000;
 }
 
 html,
@@ -306,11 +310,11 @@ ol li::marker {
 }
 
 .social-icon svg {
-  color: #000000;
+  color: var(--theme-social-icons);
 }
 
 .social-icon:hover svg {
-  color: var(--theme-brand);
+  color: var(--theme-social-icons-hover);
 }
 
 @media (min-width: 768px) {
