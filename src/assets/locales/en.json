@@ -24,7 +24,7 @@
   "seed.subtitle": "Self-custody by DieFi",
   "seed.intro.1": "SeedShuffler “scrambles” all seed phrase words into a unique {number}. The tool provides you with a personal Seedbook where you can identify the random numbers that correspond to your original seed phrase. A free tool for the crypto community.",
   "seed.intro.2": "SeedShuffler is developed by FortKnoxster DieFi, the crypto recovery and inheritance platform. Self-custody made safe, easy and future-proof.",
-  "seed.bullet.1": "Shuffle and generate your personal Seedbook.",
+  "seed.bullet.1": "Press Generate Seedbook.",
   "seed.bullet.2": "Identify the numbers which are corresponding to your original seed phrase words. These numbers are useless for a bad actor.",
   "seed.bullet.3": "Save the Seedbook anywhere and share it with friends and family. The Seedbook is also useless for a bad actor.",
   "seed.bullet.4": "The numbers can be saved in FortKnoxster DieFi, enabling yourself or designated beneficiaries to access the numbers in case you forget them or, worse case, an emergency/death.",

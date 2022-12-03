@@ -213,6 +213,7 @@ const MenuItem = styled.div({
   display: 'flex',
   alignItems: 'center',
   cursor: 'pointer',
+  color: 'var(--theme-brand)',
   paddingRight: 5,
   paddingLeft: 2,
   position: 'relative',
@@ -257,7 +258,7 @@ const NavFooter = styled.div({
   justifyContent: 'center',
   paddingTop: 30,
   gap: 10,
-  borderTop: '2px solid #ccc',
+  borderTop: '1px solid #000000',
 })
 
 const SocialIcons = styled.div({

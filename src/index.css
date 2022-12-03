@@ -18,7 +18,7 @@
   --theme-nav-item-background: #202022;
   --theme-wordbox-background: #2b2b2b;
   --theme-font: #8f8f8f;
-  --theme-title: #ffffff;
+  --theme-title: var(--theme-brand);
 }
 
 html,
