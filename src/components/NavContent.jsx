@@ -137,7 +137,7 @@ const NavContent = ({ isVisible }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FormattedMessage id="footer.joinCommunity" />
+          <FormattedMessage id="footer.learnMore" />
         </a>
 
         <h3>
