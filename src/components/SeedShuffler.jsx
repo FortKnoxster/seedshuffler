@@ -53,7 +53,7 @@ const SeedShuffler = ({}) => {
 
   async function preparePdf() {
     const doc = new jsPDF()
-    doc.addImage(logo, 'PNG', 67, 5)
+    doc.addImage(logo, 'PNG', 67, 10)
     doc.setFontSize(10)
     doc.addFileToVFS('NotoSans-Regular-normal.ttf', NotoSansRegular)
     doc.addFont('NotoSans-Regular-normal.ttf', 'NotoSans-Regular', 'normal')
@@ -70,9 +70,10 @@ const SeedShuffler = ({}) => {
   async function downloadPdf() {
     const doc = await preparePdf()
 
-    doc.text(intl.formatMessage({ id: 'pdf.intro.1' }), 10, 24)
-    doc.text(intl.formatMessage({ id: 'pdf.intro.2' }), 10, 29)
+    doc.text(intl.formatMessage({ id: 'pdf.intro.1' }), 10, 29)
+    doc.text(intl.formatMessage({ id: 'pdf.intro.2' }), 10, 34)
     /*
+    doc.setTextColor('#f3ba2f)
     doc.textWithLink(intl.formatMessage({ id: 'pdf.footer' }), 10, 57, {
       url: 'https://fortknoxster.com',
     })
@@ -144,18 +145,39 @@ const SeedShuffler = ({}) => {
             ],
           ],
           body: rows,
-          startY: j === 0 ? 38 : undefined,
+          startY: j === 0 ? 41 : undefined,
           margin: 10,
           showHead: 'firstPage',
         })
       })
 
     // Create PDF footer
-    /*
+
     doc.autoTable({
       html: '#pdf-footer',
+      alternateRowStyles: { fillColor: '#ffffff' },
+      margin: 10,
+      styles: {
+        cellPadding: 5,
+        font: 'NotoSans-Regular',
+        fontSize: 11,
+        textColor: '#000000',
+        fillColor: '#ffffff',
+      },
+      didDrawPage: (e) => {
+        const { y } = e.cursor
+        doc.setTextColor('#f3ba2f')
+        doc.setFontSize(12)
+        doc.textWithLink(
+          intl.formatMessage({ id: 'signup.link' }),
+          15,
+          y + 10,
+          {
+            url: 'https://fortknoxster.com/aff/r/SeedShuffler/',
+          },
+        )
+      },
     })
-    */
 
     if (navigator.share && isMobile()) {
       const blob = doc.output('blob', { filename: PDF_FILE_NAME })
@@ -377,17 +399,6 @@ const SeedShuffler = ({}) => {
           </tr>
           <tr>
             <td>{intl.formatMessage({ id: 'pdf.footer.2' })}</td>
-          </tr>
-          <tr>
-            <td>
-              <a
-                href="https://fortknoxster.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {intl.formatMessage({ id: 'signup.link' })}
-              </a>
-            </td>
           </tr>
         </tbody>
       </table>
