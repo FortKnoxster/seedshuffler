@@ -173,7 +173,8 @@ const SeedShuffler = ({}) => {
           15,
           y + 10,
           {
-            url: 'https://fortknoxster.com/aff/r/SeedShuffler/',
+            //url: 'https://fortknoxster.com/aff/r/SeedShuffler/',
+            url: 'https://fortknoxster.com/',
           },
         )
       },
