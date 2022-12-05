@@ -40,7 +40,7 @@
   "seed.modal.1": "Download your Seedbook and feel free to share it with friends and family, as you can only decode your seed phrase with the unique numbers you identified that corresponded to your original seed phrase words.",
   "seed.modal.2": "You can store the unique numbers in the DieFi crypto recovery and inheritance platform, click the link below, and you will get a 10% discount.",
   "seed.disclaimer.title": "Important:",
-  "seed.disclaimer.text.1": "You never type in your wallet seed phrase anywhere using SeedShuffler. The tool is a read-only application and can be used offline as well.",
+  "seed.disclaimer.text.1": "You'll never type in your wallet seed phrase anywhere using SeedShuffler. The tool is a read-only application and can be used offline as well.",
   "seed.disclaimer.text.2": "Air gap security solution. 100% open source. No 3rd-party scripts. No tracking cookies. No charge. No BS.",
   "footer.learnMore": "Learn more",
   "footer.joinCommunity": "Join our community",
