@@ -12,6 +12,7 @@
   --theme-social-icons-hover: var(--theme-brand);
   --theme-dropdown-background: var(--theme-nav-background);
   --theme-reshuffle-actions: var(--theme-font);
+  --theme-code: #000000;
   --w-menu: 330px;
 }
 
@@ -26,6 +27,7 @@
   --theme-social-icons: var(--theme-brand);
   --theme-social-icons-hover: #000000;
   --theme-reshuffle-actions: var(--theme-brand);
+  --theme-code: #eeeeee;
 }
 
 html,
@@ -48,6 +50,12 @@ body {
 
 code {
   font-family: 'Lato';
+}
+
+.code {
+  font-family: Consolas, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
+  color: var(--theme-code);
 }
 
 @media (min-width: 2200px) {

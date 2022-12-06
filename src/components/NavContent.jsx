@@ -14,6 +14,7 @@ const NavContent = ({ isVisible }) => {
     false,
     false,
     false,
+    false,
   ])
 
   async function onMenuToggle(index) {
@@ -59,6 +60,7 @@ const NavContent = ({ isVisible }) => {
               <FormattedMessage id="nav.why.text.3" />
             </p>
           </MenuContent>
+
           <MenuItem onClick={() => onMenuToggle(2)}>
             <h3>
               <FormattedMessage id="nav.secure.title" />
@@ -86,34 +88,62 @@ const NavContent = ({ isVisible }) => {
 
           <MenuItem onClick={() => onMenuToggle(3)}>
             <h3>
-              <FormattedMessage id="nav.compl.title" />
+              <FormattedMessage id="nav.chance.title" />
             </h3>
             {!isContentVisible[3] ? <AngleDown /> : <AngleUp />}
           </MenuItem>
           <MenuContent isVisible={isContentVisible[3]}>
             <p>
-              <FormattedMessage id="nav.compl.text.1" />
+              <FormattedMessage id="nav.chance.text.1" />
+            </p>
+            <p className="code">
+              <FormattedMessage id="nav.chance.text.2" />
+              <br />
+              <FormattedMessage id="nav.chance.text.3" />
+              <br />
+              <FormattedMessage id="nav.chance.text.4" />
+            </p>
+            <p>
+              <FormattedMessage id="nav.chance.text.5" />
+            </p>
+            <p>
+              <FormattedMessage id="nav.chance.text.6" />
+            </p>
+            <p>
+              <FormattedMessage id="nav.chance.text.7" />
             </p>
           </MenuContent>
 
           <MenuItem onClick={() => onMenuToggle(4)}>
             <h3>
-              <FormattedMessage id="nav.who.title" />
+              <FormattedMessage id="nav.compl.title" />
             </h3>
             {!isContentVisible[4] ? <AngleDown /> : <AngleUp />}
           </MenuItem>
           <MenuContent isVisible={isContentVisible[4]}>
             <p>
-              <FormattedMessage id="nav.who.text.1" />
+              <FormattedMessage id="nav.compl.text.1" />
             </p>
           </MenuContent>
+
           <MenuItem onClick={() => onMenuToggle(5)}>
             <h3>
-              <FormattedMessage id="nav.ex.title" />
+              <FormattedMessage id="nav.who.title" />
             </h3>
             {!isContentVisible[5] ? <AngleDown /> : <AngleUp />}
           </MenuItem>
           <MenuContent isVisible={isContentVisible[5]}>
+            <p>
+              <FormattedMessage id="nav.who.text.1" />
+            </p>
+          </MenuContent>
+          <MenuItem onClick={() => onMenuToggle(6)}>
+            <h3>
+              <FormattedMessage id="nav.ex.title" />
+            </h3>
+            {!isContentVisible[6] ? <AngleDown /> : <AngleUp />}
+          </MenuItem>
+          <MenuContent isVisible={isContentVisible[6]}>
             <p>
               <FormattedMessage
                 id="nav.ex.text.1"
