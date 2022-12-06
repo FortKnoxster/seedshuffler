@@ -29,7 +29,7 @@
   "nav.chance.text.7": "There are less atoms in the entire universe than this number.",
   "seed.title": "SeedShuffler",
   "seed.subtitle": "Self-custody by DieFi",
-  "seed.intro.1": "SeedShuffler “scrambles” all seed phrase words into a unique {number}. The tool provides you with a personal Seedbook where you can identify the random numbers that correspond to your original seed phrase. A free tool for the crypto community.",
+  "seed.intro.1": "SeedShuffler converts your vulnerable wallet seed phrase into an innovative, secure 2-factor storage solution. The read-only and serverless application is a free tool for the community and can be used offline. All you need is a pen and a piece of paper.",
   "seed.intro.2": "SeedShuffler is developed by FortKnoxster DieFi, the crypto recovery and inheritance platform. Self-custody made safe, easy and future-proof.",
   "seed.bullet.1": "Press Generate Seedbook.",
   "seed.bullet.2": "Identify the numbers which are corresponding to your original seed phrase words. These numbers are useless for a bad actor.",

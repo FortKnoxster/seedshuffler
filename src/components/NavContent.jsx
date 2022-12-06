@@ -96,7 +96,7 @@ const NavContent = ({ isVisible }) => {
             <p>
               <FormattedMessage id="nav.chance.text.1" />
             </p>
-            <p className="code">
+            <p>
               <FormattedMessage id="nav.chance.text.2" />
               <br />
               <FormattedMessage id="nav.chance.text.3" />
