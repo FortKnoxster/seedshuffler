@@ -52,14 +52,14 @@
   "devDependencies": {
     "@craco/craco": "^7.0.0",
     "@emotion/eslint-plugin": "^11.10.0",
-    "eslint": "^8.28.0",
+    "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.11",
-    "lint-staged": "^13.0.4",
+    "lint-staged": "^13.1.0",
     "prettier": "^2.8.0",
     "webpack-subresource-integrity": "^5.1.0"
   }
