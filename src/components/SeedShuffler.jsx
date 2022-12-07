@@ -6,11 +6,9 @@ import { shuffleArray } from '../helpers/csprng'
 import Select from 'react-select'
 import { jsPDF } from 'jspdf'
 import autoTable from 'jspdf-autotable'
-import { bip39LanguageOptions } from '../helpers/ui'
+import { bip39LanguageOptions, loadFont } from '../helpers/ui'
 import { isMobile } from '../helpers/utils'
 import logo from '../assets/seedshuffler-logo.png'
-import { NotoSansRegular } from '../assets/fonts/noto-sans/NotoSans-Regular-normal.js'
-//import { MPLUS1 } from '../assets/fonts/mplus1/MPLUS1-normal.js'
 
 // eslint-disable-next-line no-empty-pattern
 const SeedShuffler = ({}) => {
@@ -55,29 +53,19 @@ const SeedShuffler = ({}) => {
     const doc = new jsPDF()
     doc.addImage(logo, 'PNG', 67, 10)
     doc.setFontSize(10)
-    doc.addFileToVFS('NotoSans-Regular-normal.ttf', NotoSansRegular)
-    doc.addFont('NotoSans-Regular-normal.ttf', 'NotoSans-Regular', 'normal')
-    doc.setFont('NotoSans-Regular')
-    /*
-    doc.addFileToVFS('MPLUS1-normal.ttf', MPLUS1)
-    doc.addFont('MPLUS1.ttf', 'MPLUS1', 'normal')
-    doc.setFont('MPLUS1')
-    */
-
-    return doc
+    const { font, fontName, fileName, fontSize } = await loadFont(language)
+    doc.addFileToVFS(fileName, font)
+    doc.addFont(fileName, fontName, 'normal')
+    doc.setFont(fontName)
+    return { doc, fontName, fontSize }
   }
 
   async function downloadPdf() {
-    const doc = await preparePdf()
+    const { doc, fontName, fontSize } = await preparePdf()
 
     doc.text(intl.formatMessage({ id: 'pdf.intro.1' }), 10, 29)
     doc.text(intl.formatMessage({ id: 'pdf.intro.2' }), 10, 34)
-    /*
-    doc.setTextColor('#f3ba2f)
-    doc.textWithLink(intl.formatMessage({ id: 'pdf.footer' }), 10, 57, {
-      url: 'https://fortknoxster.com',
-    })
-    */
+
     const maxCols = 14
 
     Object.keys(shuffledWordlist)
@@ -101,8 +89,8 @@ const SeedShuffler = ({}) => {
               styles: {
                 halign: 'right',
                 cellPadding: 1,
-                font: 'NotoSans-Regular',
-                fontSize: 9,
+                font: fontName,
+                fontSize: fontSize,
                 textColor: '#000000',
               },
             },
@@ -110,8 +98,8 @@ const SeedShuffler = ({}) => {
               content: word,
               styles: {
                 cellPadding: 1,
-                font: 'NotoSans-Regular',
-                fontSize: 9,
+                font: fontName,
+                fontSize: fontSize,
                 textColor: '#000000',
               },
             },
@@ -127,8 +115,8 @@ const SeedShuffler = ({}) => {
                 styles: {
                   halign: 'center',
                   cellPadding: 1,
-                  font: 'helvetica',
-                  fontSize: 11,
+                  font: fontName,
+                  fontSize: 12,
                   textColor: '#000000',
                   fontStyle: 'bold',
                   fillColor: '#f3ba2f',
@@ -159,7 +147,7 @@ const SeedShuffler = ({}) => {
       margin: 10,
       styles: {
         cellPadding: 5,
-        font: 'NotoSans-Regular',
+        font: fontName,
         fontSize: 11,
         textColor: '#000000',
         fillColor: '#ffffff',

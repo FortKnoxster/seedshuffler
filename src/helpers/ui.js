@@ -12,8 +12,8 @@ import {
   WL_KOREAN,
   WL_PORTUGUESE,
   WL_SPANISH,
-  WL_CHINESE_SI_NAME,
-  WL_CHINESE_TR_NAME,
+  //WL_CHINESE_SI_NAME,
+  //WL_CHINESE_TR_NAME,
   WL_CZECH_NAME,
   WL_ENGLISH_NAME,
   WL_FRENCH_NAME,
@@ -28,8 +28,8 @@ export const bip39LanguageOptions = [
   { value: WL_ENGLISH, label: WL_ENGLISH_NAME },
   { value: WL_JAPANESE, label: WL_JAPANESE_NAME },
   { value: WL_SPANISH, label: WL_SPANISH_NAME },
-  { value: WL_CHINESE_SI, label: WL_CHINESE_SI_NAME },
-  { value: WL_CHINESE_TR, label: WL_CHINESE_TR_NAME },
+  //{ value: WL_CHINESE_SI, label: WL_CHINESE_SI_NAME },
+  //{ value: WL_CHINESE_TR, label: WL_CHINESE_TR_NAME },
   { value: WL_FRENCH, label: WL_FRENCH_NAME },
   { value: WL_ITALIAN, label: WL_ITALIAN_NAME },
   { value: WL_CZECH, label: WL_CZECH_NAME },
@@ -37,7 +37,68 @@ export const bip39LanguageOptions = [
   { value: WL_PORTUGUESE, label: WL_PORTUGUESE_NAME },
 ]
 
-export const pdfFonts = []
+export async function loadFont(language) {
+  switch (language) {
+    case WL_JAPANESE: {
+      const { MPLUS1 } = await import('../assets/fonts/mplus1/MPLUS1-normal.js')
+      return {
+        font: MPLUS1,
+        fontName: 'MPLUS1',
+        fileName: 'MPLUS1.ttf',
+        fontSize: 8,
+      }
+    }
+    case WL_CHINESE_SI: {
+      const { ZCOOLKuaiLe } = await import(
+        '../assets/fonts/zcoolkuaiLe/ZCOOLKuaiLe-Regular-normal.js'
+      )
+      return {
+        font: ZCOOLKuaiLe,
+        fontName: 'ZCOOLKuaiLe-Regular',
+        fileName: 'ZCOOLKuaiLe-Regular-normal.ttf',
+        fontSize: 9,
+      }
+    }
+    case WL_KOREAN: {
+      const { NanumGothicRegular } = await import(
+        '../assets/fonts/nanumgothic/NanumGothic-Regular-normal.js'
+      )
+      return {
+        font: NanumGothicRegular,
+        fontName: 'NanumGothic-Regular',
+        fileName: 'NanumGothic-Regular-normal.ttf',
+        fontSize: 7,
+      }
+    }
+    case WL_ENGLISH:
+    case WL_SPANISH:
+    case WL_ITALIAN:
+    case WL_FRENCH:
+    case WL_PORTUGUESE:
+    case WL_CZECH:
+    default: {
+      const { NotoSansRegular } = await import(
+        '../assets/fonts/noto-sans/NotoSans-Regular-normal.js'
+      )
+      return {
+        font: NotoSansRegular,
+        fontName: 'NotoSans-Regular',
+        fileName: 'NotoSans-Regular-normal.ttf',
+        fontSize: 9,
+      }
+    }
+  }
+}
+
+export function hasAlphabet(language) {
+  switch (language) {
+    case WL_CHINESE_SI:
+    case WL_CHINESE_TR:
+      return false
+    default:
+      return true
+  }
+}
 
 export const AngleDown = (props) => (
   <FontAwesomeIcon icon={solid('angle-down')} {...props} />
