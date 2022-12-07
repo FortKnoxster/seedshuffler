@@ -5,6 +5,7 @@ import locales from './assets/locales'
 import { IntlProvider } from 'react-intl'
 import './assets/fonts/lato/font.css'
 import './index.css'
+import './spinner.css'
 import App from './App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))

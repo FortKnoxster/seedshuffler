@@ -27,32 +27,34 @@ const Modal = ({ children, isVisible, hasAppMenu, ...rest }) => {
 
 export default Modal
 
-const Overlay = styled({
-  width: '100vw',
-  height: '100vh',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  zIndex: 2000,
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  backgroundColor: 'var(--theme-overlay)',
-  '&.has-appmenu': {
-    paddingLeft: 'var(--w-menu)',
-  },
-  '@media (max-width: 768px)': {
+const Overlay = styled
+  .div({
+    width: '100vw',
+    height: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 2000,
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    backgroundColor: 'var(--theme-overlay)',
     '&.has-appmenu': {
-      paddingLeft: 0,
+      paddingLeft: 'calc(var(--w-menu) / 2)',
     },
-  },
-}).withComponent(animated.div)
+    '@media (max-width: 768px)': {
+      '&.has-appmenu': {
+        paddingLeft: 0,
+      },
+    },
+  })
+  .withComponent(animated.div)
 
 const ModalWrapper = styled(animated.div)({
   border: '2px solid var(--theme-brand)',
   borderRadius: 8,
-  backgroundColor: 'var(--theme-main)',
+  backgroundColor: 'var(--theme-background)',
   boxShadow: '0px 5px 16px rgba(35, 131, 197, 0.1)',
   overflow: 'hidden',
   '@media (max-width: 768px)': {

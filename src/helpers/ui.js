@@ -124,6 +124,10 @@ export const Envelope = (props) => (
   <FontAwesomeIcon icon={solid('envelope')} {...props} />
 )
 
+export const Close = (props) => (
+  <FontAwesomeIcon icon={solid('xmark')} {...props} />
+)
+
 export const Twitter = (props) => (
   <FontAwesomeIcon icon={brands('twitter')} {...props} />
 )

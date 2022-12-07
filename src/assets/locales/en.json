@@ -3,6 +3,9 @@
   "disclaimer": "All rights reserved.",
   "contact": "Contact",
   "here": "here",
+  "button.submit": "Submit",
+  "input.email.placeholder": "Your email address",
+  "email.success": "Great! We've just sent you an email, please check your inbox.",
   "number": "number sequence",
   "nav.what.title": "What is SeedShuffler?",
   "nav.what.text.1": "SeedShuffler converts your vulnerable wallet seed phrase into a smart secure 2-factor storage solution.",
@@ -43,8 +46,6 @@
   "seed.alert.confirmReshuffle": "Please confirm you wish to reshuffle Seedbook.\nThe previous generated Seedbook will be replaced.\n\nPress OK to confirm or Cancel.",
   "seed.showSeed": "Show Seedbook",
   "seed.hideSeed": "Hide Seedbook",
-  "seed.modal.1": "Download your Seedbook and feel free to share it with friends and family, as you can only decode your seed phrase with the unique numbers you identified that corresponded to your original seed phrase words.",
-  "seed.modal.2": "You can store the unique numbers in the DieFi crypto recovery and inheritance platform, click the link below, and you will get a 10% discount.",
   "seed.disclaimer.title": "Important:",
   "seed.disclaimer.text.1": "You'll never type in your wallet seed phrase anywhere using SeedShuffler. The tool is a read-only application and can be used offline as well.",
   "seed.disclaimer.text.2": "Air gap security solution. 100% open source. No 3rd-party scripts. No tracking cookies. No charge. No BS.",
@@ -57,5 +58,10 @@
   "signup.link": "Sign up to FortKnoxster DieFi.",
   "social.intro": "Spread the word to your crypto friends",
   "social.spreadTheWord": "Spread the word on {social}",
-  "social.shareText": "Check out #SeedShuffler the smart self-custody solution by #DieFi."
+  "social.shareText": "Check out #SeedShuffler the smart self-custody solution by #DieFi.",
+  "modal.download.title": "For added security:",
+  "modal.download.bullet.1": "Share your Seedbook with family and friends.",
+  "modal.download.bullet.2": "Store your unique numbers in the DieFi crypto recovery and inheritance platform.",
+  "modal.download.text.1": "Yourself - and/or your assigned beneficiaries will now be able to restore the numbers if lost.",
+  "modal.download.text.2": "Insert your email and receive 10% off your DieFi subscription."
 }

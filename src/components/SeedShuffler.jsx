@@ -9,6 +9,7 @@ import autoTable from 'jspdf-autotable'
 import { bip39LanguageOptions, loadFont } from '../helpers/ui'
 import { isMobile } from '../helpers/utils'
 import logo from '../assets/seedshuffler-logo.png'
+import DownloadModal from './DownloadModal'
 
 // eslint-disable-next-line no-empty-pattern
 const SeedShuffler = ({}) => {
@@ -19,6 +20,7 @@ const SeedShuffler = ({}) => {
   const [wordlist, setWordlist] = useState(null)
   const [language, setLanguage] = useState(WL_ENGLISH)
   const [showSeed, setShowSeed] = useState(false)
+  const [showDownloadPrompt, setShowDownloadPrompt] = useState(false)
 
   useEffect(() => {
     async function initWordlist() {
@@ -329,7 +331,7 @@ const SeedShuffler = ({}) => {
               ref={buttonRef}
               className="button button-inverse"
               disabled={!wordlist}
-              onClick={() => downloadPdf()}
+              onClick={() => setShowDownloadPrompt(true)}
             >
               <FormattedMessage id="seed.button.download" />
             </button>
@@ -391,6 +393,12 @@ const SeedShuffler = ({}) => {
           </tr>
         </tbody>
       </table>
+      <DownloadModal
+        hasAppMenu={true}
+        onDownload={downloadPdf}
+        isVisible={showDownloadPrompt}
+        onClose={() => setShowDownloadPrompt(false)}
+      />
     </Container>
   )
 }

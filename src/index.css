@@ -12,6 +12,7 @@
   --theme-social-icons-hover: var(--theme-brand);
   --theme-dropdown-background: var(--theme-nav-background);
   --theme-reshuffle-actions: var(--theme-font);
+  --theme-overlay: rgb(20, 20, 20, 0.7);
   --w-menu: 330px;
 }
 
@@ -75,6 +76,10 @@ p {
   margin-bottom: 15px;
 }
 
+input {
+  font-size: calc(6px + 1.1vmin);
+}
+
 h1 {
   font-size: calc(48px + 5vmin);
   margin-bottom: 30px;
@@ -128,6 +133,7 @@ ol li.intro-text {
   body,
   ul,
   li,
+  input,
   p {
     font-size: calc(12px + 1.2vmin);
   }
@@ -181,6 +187,12 @@ a:hover {
 
 .underline {
   text-decoration: underline;
+}
+
+.success {
+  color: var(--theme-brand);
+  font-weight: bold;
+  padding: 7px;
 }
 
 ol li::marker {
@@ -300,6 +312,7 @@ ol li::marker {
   cursor: pointer;
 }
 
+.button-close-icon svg,
 .button-icon svg {
   color: var(--theme-brand);
 }
@@ -308,8 +321,17 @@ ol li::marker {
   background-color: var(--theme-brand);
 }
 
+.button-close-icon:hover svg,
 .button-icon:hover svg {
   color: #ffffff;
+}
+
+.button-close-icon,
+.button-close-icon:active,
+.button-close-icon:visited {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .social-icon svg {
@@ -328,4 +350,15 @@ ol li::marker {
 
 .hidden {
   display: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--theme-brand);
+}
+
+[disabled] {
+  opacity: 0.7;
+  pointer-events: none;
 }
