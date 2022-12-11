@@ -148,27 +148,27 @@ const SeedShuffler = ({}) => {
     doc.autoTable({
       html: '#pdf-footer',
       alternateRowStyles: { fillColor: '#ffffff' },
-      margin: 10,
+      margin: 8,
       styles: {
-        cellPadding: 5,
+        cellPadding: 2,
         font: fontName,
         fontSize: 11,
         textColor: '#000000',
         fillColor: '#ffffff',
+        fontStyle: 'bold',
       },
       didDrawPage: (e) => {
         const { y } = e.cursor
         doc.setTextColor('#f3ba2f')
-        doc.setFontSize(12)
-        doc.textWithLink(
-          intl.formatMessage({ id: 'signup.link' }),
-          15,
-          y + 10,
-          {
-            //url: 'https://fortknoxster.com/aff/r/SeedShuffler/',
-            url: 'https://fortknoxster.com/',
-          },
-        )
+        doc.setFontSize(14)
+        const signupLink = intl.formatMessage({ id: 'signup.link' })
+        doc.textWithLink(signupLink, 65, y + 7, {
+          url: 'https://diefi.fortknoxster.dev/register?ref=SeedShuffler',
+          //url: 'https://fortknoxster.com/',
+        })
+        const textWidth = doc.getTextWidth(signupLink)
+        doc.setFillColor('#f3ba2f')
+        doc.line(65, y + 8, 65 + textWidth, y + 8, 'F')
       },
     })
 
