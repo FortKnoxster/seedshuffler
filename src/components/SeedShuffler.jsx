@@ -11,6 +11,8 @@ import { isMobile } from '../helpers/utils'
 import logo from '../assets/seedshuffler-logo.png'
 import DownloadModal from './DownloadModal'
 
+const showLanguageSelector = false
+
 // eslint-disable-next-line no-empty-pattern
 const SeedShuffler = ({}) => {
   const intl = useIntl()
@@ -255,51 +257,53 @@ const SeedShuffler = ({}) => {
 
       {!Boolean(shuffledWordlist) && (
         <GenerateWrapper>
-          <SelectWrapper>
-            <Select
-              name="language"
-              options={bip39LanguageOptions}
-              defaultValue={bip39LanguageOptions[0]}
-              value={bip39LanguageOptions.find((o) => o.value === language)}
-              onChange={handleLanguageChange}
-              styles={{
-                control: (styles, state) => ({
-                  ...styles,
-                  border: `2px solid var(--theme-brand)`,
-                  borderColor: 'var(--theme-brand)',
-                  boxShadow: 'none',
-                  '&:hover': {
-                    borderColor: 'var(--theme-brand)',
-                  },
-                  '&:focus': {
+          {showLanguageSelector && (
+            <SelectWrapper>
+              <Select
+                name="language"
+                options={bip39LanguageOptions}
+                defaultValue={bip39LanguageOptions[0]}
+                value={bip39LanguageOptions.find((o) => o.value === language)}
+                onChange={handleLanguageChange}
+                styles={{
+                  control: (styles, state) => ({
+                    ...styles,
                     border: `2px solid var(--theme-brand)`,
-                  },
-                  backgroundColor: 'var(--theme-dropdown-background)',
-                }),
-                singleValue: (styles) => ({
-                  ...styles,
-                  color: 'var(--theme-font)',
-                }),
-                menu: (styles) => ({
-                  ...styles,
-                  backgroundColor: 'var(--theme-dropdown-background)',
-                  border: `2px solid var(--theme-brand)`,
-                }),
-                option: (styles) => ({
-                  ...styles,
-                  backgroundColor: 'inherit',
-                  cursor: 'pointer',
-                  color: 'var(--theme-font)',
-                  //fontWeight: 400,
-                  //fontSize: '1.25rem',
-                  '&:hover': {
-                    backgroundColor: 'var(--theme-brand)',
-                    color: '#ffffff',
-                  },
-                }),
-              }}
-            />
-          </SelectWrapper>
+                    borderColor: 'var(--theme-brand)',
+                    boxShadow: 'none',
+                    '&:hover': {
+                      borderColor: 'var(--theme-brand)',
+                    },
+                    '&:focus': {
+                      border: `2px solid var(--theme-brand)`,
+                    },
+                    backgroundColor: 'var(--theme-dropdown-background)',
+                  }),
+                  singleValue: (styles) => ({
+                    ...styles,
+                    color: 'var(--theme-font)',
+                  }),
+                  menu: (styles) => ({
+                    ...styles,
+                    backgroundColor: 'var(--theme-dropdown-background)',
+                    border: `2px solid var(--theme-brand)`,
+                  }),
+                  option: (styles) => ({
+                    ...styles,
+                    backgroundColor: 'inherit',
+                    cursor: 'pointer',
+                    color: 'var(--theme-font)',
+                    //fontWeight: 400,
+                    //fontSize: '1.25rem',
+                    '&:hover': {
+                      backgroundColor: 'var(--theme-brand)',
+                      color: '#ffffff',
+                    },
+                  }),
+                }}
+              />
+            </SelectWrapper>
+          )}
           <button
             className="button"
             disabled={!wordlist}
@@ -526,6 +530,7 @@ const WordBox = styled.code({
 const GenerateWrapper = styled.div({
   display: 'flex',
   flexDirection: 'column',
+  marginTop: 40,
   width: '35%',
   '@media (max-width: 2200px)': {
     width: '55%',
