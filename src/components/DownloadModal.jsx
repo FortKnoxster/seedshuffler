@@ -13,6 +13,7 @@ const DownloadModal = ({ isVisible, onDownload, onClose, ...rest }) => {
   const [isValid, setIsValid] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [hasSubmitted, setHasSubmitted] = useState(false)
+  const [showSubmit, setShowSubmit] = useState(false)
 
   function handleClose(e) {
     onClose()
@@ -35,6 +36,7 @@ const DownloadModal = ({ isVisible, onDownload, onClose, ...rest }) => {
       }
     } catch (err) {
       console.error(err)
+      setHasSubmitted(false)
     } finally {
       setIsSubmitting(false)
     }
@@ -42,6 +44,9 @@ const DownloadModal = ({ isVisible, onDownload, onClose, ...rest }) => {
 
   function handleDownload() {
     onDownload()
+    if (email && isValid) {
+      handleSubmit()
+    }
   }
 
   const isDisabled = !isValid || isSubmitting
@@ -97,7 +102,7 @@ const DownloadModal = ({ isVisible, onDownload, onClose, ...rest }) => {
                   })}
                 />
                 <Spinner isVisible={isSubmitting} />
-                {!isSubmitting && (
+                {showSubmit && !isSubmitting && (
                   <button
                     className="button-sm"
                     type="submit"
@@ -182,7 +187,8 @@ const EmailInput = styled.div({
     padding: 10,
     border: '2px solid var(--theme-brand)',
     borderRadius: 5,
-    width: '70%',
+    //width: '70%',
+    width: '100%',
     color: 'var(--theme-font)',
     backgroundColor: 'var(--theme-dropdown-background)',
     '@media (max-width: 768px)': {
