@@ -78,7 +78,7 @@ const SeedShuffler = ({}) => {
         const rows = []
         shuffledWordlist[letter].forEach(({ word, index }, i) => {
           if (colIndex > maxCols) {
-            colIndex = 0
+            colIndex = 1
             ++rowIndex
             rows[rowIndex] = []
           }
