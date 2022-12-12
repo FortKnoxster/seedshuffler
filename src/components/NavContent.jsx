@@ -150,7 +150,7 @@ const NavContent = ({ isVisible }) => {
                 values={{
                   here: (
                     <a
-                      href="https://fortknoxster.com/seedshuffler-example"
+                      href="https://www.youtube.com/watch?v=nWIX2FRHhtc"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

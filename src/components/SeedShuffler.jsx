@@ -245,6 +245,18 @@ const SeedShuffler = ({}) => {
           }}
         />
       </p>
+      <p className="intro-text">
+        <FormattedMessage
+          id="seed.disclaimer.text.1"
+          values={{
+            important: (
+              <strong>
+                {intl.formatMessage({ id: 'seed.disclaimer.title' })}
+              </strong>
+            ),
+          }}
+        />
+      </p>
       <Ol>
         <li className="intro-text">
           <FormattedMessage id="seed.bullet.1" />
@@ -322,12 +334,7 @@ const SeedShuffler = ({}) => {
           >
             <FormattedMessage id="seed.button.generate" />
           </button>
-          <h2 className="subtitle">
-            <FormattedMessage id="seed.disclaimer.title" />
-          </h2>
-          <p className="intro-text">
-            <FormattedMessage id="seed.disclaimer.text.1" />
-          </p>
+
           <p className="intro-text">
             <FormattedMessage id="seed.disclaimer.text.2" />
           </p>
@@ -558,6 +565,7 @@ const GenerateWrapper = styled.div({
     paddingBottom: 20,
   },
   p: {
+    marginTop: 50,
     width: '100%',
     minWidth: '100%',
   },
