@@ -86,7 +86,9 @@ const DownloadModal = ({ isVisible, onDownload, onClose, ...rest }) => {
           <EmailInput>
             {hasSubmitted && (
               <p className="success">
-                <FormattedMessage id="email.success" />
+                <FormattedMessage id="email.success.1" />
+                <br />
+                <FormattedMessage id="email.success.2" />
               </p>
             )}
             {!hasSubmitted && (
