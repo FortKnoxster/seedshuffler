@@ -1,11 +1,10 @@
 # SeedShuffler
 
-[SeedShuffler](https://seedshuffler.com) is a free tool to generate your personal and 100% unique seed number matrix.
-The tool, which is open sourced, generates an unique mix of numbers, based on the Original BIP39 2048 word list, but "shuffled" so it gets truly unique.
-
-SeedShuffler is developed by [FortKnoxster DieFi](https://fortknoxster.com), the crypto recovery and inheritance platform.
+[SeedShuffler](https://seedshuffler.com) is a free tool to generate your personal and 100% unique seed number matrix. SeedShuffler converts your vulnerable wallet seed phrase into an innovative, secure 2-factor storage solution. The read-only and serverless application is a free tool for the community and can be used offline. All you need is a pen and a piece of paper.
 
 ![](https://raw.githubusercontent.com/FortKnoxster/seedshuffler/main/src/assets/SeedShuffler_Screenshot.png)
+
+SeedShuffler is developed by [FortKnoxster DieFi](https://fortknoxster.com), the crypto recovery and inheritance platform.
 
 ## Security Overview
 
@@ -17,7 +16,7 @@ All operations, such as generating the Seedbook, displaying it, creating the See
 - Shuffle algorithm using a CSRPNG (Cryptographically secure pseudorandom number generator).
 - 100% client based application.
 - 100% open source code.
-- Offline mode.
+- Offline/flight mode.
 - Strict Content Security Policy (CSP)
 - Subresource Integrity (SRI)
 - A+ score on ssllabs.com
