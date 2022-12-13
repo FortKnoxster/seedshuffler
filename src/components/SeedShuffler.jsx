@@ -367,7 +367,6 @@ const SeedShuffler = ({}) => {
           >
             <FormattedMessage id="seed.button.generate" />
           </button>
-
           <p className="intro-text">
             <FormattedMessage id="seed.disclaimer.text.2" />
           </p>
@@ -402,12 +401,6 @@ const SeedShuffler = ({}) => {
             <ReshuffleSeedMatrix onClick={() => reshuffleSeedMatrix()}>
               <FormattedMessage id="seed.reshuffle" />
             </ReshuffleSeedMatrix>
-            <h2 className="subtitle">
-              <FormattedMessage id="seed.disclaimer.title" />
-            </h2>
-            <p className="intro-text">
-              <FormattedMessage id="seed.disclaimer.text.1" />
-            </p>
             <p className="intro-text">
               <FormattedMessage id="seed.disclaimer.text.2" />
             </p>
@@ -519,7 +512,7 @@ const Panel = styled.div({
     },
   },
   '@media (max-width: 2200px)': {
-    width: '65%',
+    width: '55%',
   },
   '@media (max-width: 1000px)': {
     width: '100%',
