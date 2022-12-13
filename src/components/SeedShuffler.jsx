@@ -161,16 +161,16 @@ const SeedShuffler = ({}) => {
       },
       didDrawPage: (e) => {
         const { y } = e.cursor
-        doc.setTextColor('#f3ba2f')
+        doc.setTextColor('#000000')
         doc.setFontSize(16)
 
         const signupLink = intl.formatMessage({ id: 'signup.link' })
         doc.textWithLink(signupLink, 65, y + 10, {
-          url: 'https://diefi.fortknoxster.dev/register?ref=SeedShuffler',
+          url: 'https://diefi.fortknoxster.com/register?ref=SeedShuffler',
           //url: 'https://fortknoxster.com/',
         })
         const textWidth = doc.getTextWidth(signupLink)
-        doc.setFillColor('#f3ba2f')
+        doc.setFillColor('#000000')
         doc.line(65, y + 11, 65 + textWidth, y + 11, 'F')
 
         doc.setFontSize(11)
