@@ -166,7 +166,7 @@ const NavContent = ({ isVisible }) => {
       <NavFooter>
         <a
           className="button-sm"
-          href="https://fortknoxster.com/SeedShuffler"
+          href="https://fortknoxster.com"
           target="_blank"
           rel="noopener noreferrer"
         >
