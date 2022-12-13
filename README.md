@@ -7,6 +7,22 @@ SeedShuffler is developed by [FortKnoxster DieFi](https://fortknoxster.com), the
 
 ![](https://raw.githubusercontent.com/FortKnoxster/seedshuffler/main/src/assets/SeedShuffler_Screenshot.png)
 
+## Security Overview
+
+SeedShuffler is a serverless web application that only requires a client browser to work.
+All operations, such as generating the Seedbook, displaying it, creating the Seedbook PDF and saving the PDF to your machine, are performed securely in the browser and does not rely on any remote servers or third-party services. SeedShuffler can therefore also work in offline mode.
+
+### Security Features
+
+- Shuffle algorithm using a CSRPNG (Cryptographically secure pseudorandom number generator).
+- 100% client based application.
+- 100% open source code.
+- Offline mode.
+- Strict Content Security Policy (CSP)
+- Subresource Integrity (SRI)
+- A+ score on ssllabs.com
+- A+ score on securityheaders.com
+
 ## NPM Install
 
 Git clone and install dependencies:
@@ -16,13 +32,6 @@ Git clone and install dependencies:
 Run the app locally:
 
 ### `npm start`
-
-## Security Overview
-
-SeedShuffler is a serverless web application that only requires a client browser to work.
-All operations, such as generating the Seedbook, displaying it, creating the Seedbook PDF and saving the PDF to your machine, are performed securely in the browser and does not rely on any remote servers or third-party services. SeedShuffler can therefore also work in offline mode.
-
-### Security Features
 
 ## License
 
