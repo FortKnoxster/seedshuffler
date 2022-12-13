@@ -7,18 +7,23 @@ SeedShuffler is developed by [FortKnoxster DieFi](https://fortknoxster.com), the
 
 ![](https://raw.githubusercontent.com/FortKnoxster/seedshuffler/main/src/assets/SeedShuffler_Screenshot.png)
 
-## Available Scripts
+## NPM Install
 
-In the project directory, you can run:
+Git clone and install dependencies:
+
+### `npm install`
+
+Run the app locally:
 
 ### `npm start`
 
-Runs the app in the development mode.\
+## Security Overview
 
-### `npm test`
+SeedShuffler is a serverless web application that only requires a client browser to work.
+All operations, such as generating the Seedbook, displaying it, creating the Seedbook PDF and saving the PDF to your machine, are performed securely in the browser and does not rely on any remote servers or third-party services. SeedShuffler can therefore also work in offline mode.
 
-Launches the test runner in the interactive watch mode.\
+### Security Features
 
-### `npm run build`
+## License
 
-Builds the app for production to the `build` folder.\
+SeedShuffler is available under the Apache-2.0 license. See the [LICENSE](LICENSE) file for more info.
