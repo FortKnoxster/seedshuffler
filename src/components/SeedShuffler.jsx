@@ -20,6 +20,7 @@ const SeedShuffler = ({}) => {
   const buttonRef = useRef()
   const [shuffledWordlist, setShuffledWordlist] = useState(null)
   const [wordlist, setWordlist] = useState(null)
+  const [currentFont, setCurrentFont] = useState(null)
   const [language, setLanguage] = useState(WL_ENGLISH)
   const [showSeed, setShowSeed] = useState(false)
   const [showDownloadPrompt, setShowDownloadPrompt] = useState(false)
@@ -28,6 +29,7 @@ const SeedShuffler = ({}) => {
     async function initWordlist() {
       const wl = await import(`../wordlists/${language}.json`)
       setWordlist(wl.default)
+      setCurrentFont(await loadFont(language))
     }
     initWordlist()
   }, [language])
@@ -57,7 +59,7 @@ const SeedShuffler = ({}) => {
     const doc = new jsPDF()
     doc.addImage(logo, 'PNG', 67, 10)
     doc.setFontSize(10)
-    const { font, fontName, fileName, fontSize } = await loadFont(language)
+    const { font, fontName, fileName, fontSize } = currentFont //await loadFont(language)
     doc.addFileToVFS(fileName, font)
     doc.addFont(fileName, fontName, 'normal')
     doc.setFont(fontName)
