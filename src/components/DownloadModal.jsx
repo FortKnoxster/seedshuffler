@@ -193,9 +193,6 @@ const EmailInput = styled.div({
     width: '100%',
     color: 'var(--theme-font)',
     backgroundColor: 'var(--theme-dropdown-background)',
-    '@media (max-width: 768px)': {
-      width: '55%',
-    },
   },
 })
 
