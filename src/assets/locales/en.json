@@ -57,6 +57,8 @@
   "pdf.footer.1": "Feel free to share your Seedbook with friends and family, as you can only decode your seed phrase with the unique numbers you identified that corresponded to your original seed phrase words.",
   "pdf.footer.2": "You can store the unique numbers in the DieFi crypto recovery and inheritance platform, click the link below, and you will get a 10% discount.",
   "pdf.footer.3": "For more information or help, please visit fortknoxster.com",
+  "pdf.footer.timestamp": "This unique Seedbook was generated on SeedShuffler.com, {timestamp}.",
+  "pdf.footer.pageNumbers": "Page {x} of {y}",
   "signup.link": "Sign up to FortKnoxster DieFi.",
   "social.intro": "Spread the word to your crypto friends",
   "social.spreadTheWord": "Spread the word on {social}",

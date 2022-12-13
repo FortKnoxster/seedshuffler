@@ -177,13 +177,44 @@ const SeedShuffler = ({}) => {
         doc.setTextColor('#000000')
         doc.setFillColor('#000000')
         const visitLink = intl.formatMessage({ id: 'pdf.footer.3' })
-        doc.textWithLink(visitLink, 50, y + 35, {
+        doc.textWithLink(visitLink, 50, y + 30, {
           url: 'https://fortknoxster.com/',
         })
         const textWidth2 = doc.getTextWidth(visitLink)
-        doc.line(50, y + 36, 50 + textWidth2, y + 36, 'F')
+        doc.line(50, y + 31, 50 + textWidth2, y + 31, 'F')
       },
     })
+
+    const pageCount = doc.internal.getNumberOfPages()
+
+    // For each page, print the page number and the total pages
+    for (let i = 1; i <= pageCount; i++) {
+      // Go to page i
+      doc.setPage(i)
+      doc.text(
+        intl.formatMessage(
+          { id: 'pdf.footer.timestamp' },
+          { timestamp: new Date().toGMTString() },
+        ),
+        10,
+        290,
+        null,
+        null,
+        'left',
+      )
+      //Print Page 1 of 4 for example
+      doc.text(
+        intl.formatMessage(
+          { id: 'pdf.footer.pageNumbers' },
+          { x: String(i), y: String(pageCount) },
+        ),
+        200,
+        290,
+        null,
+        null,
+        'right',
+      )
+    }
 
     if (navigator.share && isMobile()) {
       const blob = doc.output('blob', { filename: PDF_FILE_NAME })
