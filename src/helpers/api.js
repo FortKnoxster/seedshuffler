@@ -10,6 +10,6 @@ function postJson(url, data) {
 }
 
 export function getDieFi(email) {
-  const url = 'https://api.fortknoxster.dev/email/seedshuffler/get-diefi'
+  const url = 'https://api.fortknoxster.com/email/seedshuffler/get-diefi'
   return postJson(url, { email })
 }
