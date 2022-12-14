@@ -2,7 +2,7 @@
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer
-  Content-Security-Policy: default-src 'self' https://seedshuffler.com; style-src 'sha256-vRkzjm/eem2C4oetMemP4rydMW/i+Ukj+Q9KzHLWzmY=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' https://seedshuffler.com; connect-src 'self' https://api.fortknoxster.dev;
+  Content-Security-Policy: default-src 'self' https://seedshuffler.com; style-src 'sha256-vRkzjm/eem2C4oetMemP4rydMW/i+Ukj+Q9KzHLWzmY=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' https://seedshuffler.com; connect-src 'self' https://api.fortknoxster.com;
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload;
   Access-Control-Allow-Origin: https://seedshuffler.com;
   Permissions-Policy: geolocation=(), microphone=(), camera=();
