@@ -266,6 +266,15 @@ const SeedShuffler = ({}) => {
       <h2 className="title">
         <FormattedMessage id="seed.subtitle" />
       </h2>
+      <ExplainerVideo className="intro-text">
+        <a
+          href="https://www.youtube.com/watch?v=CeQpvk9FeMg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FormattedMessage id="nav.ex.title" />
+        </a>
+      </ExplainerVideo>
       <p className="intro-text">
         <FormattedMessage
           id="seed.intro.1"
@@ -626,4 +635,16 @@ const ShowSeedMatrix = styled.div({
 
 const ReshuffleSeedMatrix = styled(ShowSeedMatrix)({
   marginTop: 20,
+})
+
+const ExplainerVideo = styled.p({
+  textAlign: 'center',
+  paddingBottom: 20,
+  marginBottom: 0,
+  a: {
+    color: 'var(--theme-font)',
+    ':hover': {
+      color: 'var(--theme-brand)',
+    },
+  },
 })
