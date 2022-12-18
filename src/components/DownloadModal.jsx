@@ -13,7 +13,6 @@ const DownloadModal = ({ isVisible, onDownload, onClose, ...rest }) => {
   const [isValid, setIsValid] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [hasSubmitted, setHasSubmitted] = useState(false)
-  const [showSubmit, setShowSubmit] = useState(false)
 
   function handleClose(e) {
     onClose()
@@ -48,8 +47,6 @@ const DownloadModal = ({ isVisible, onDownload, onClose, ...rest }) => {
       handleSubmit()
     }
   }
-
-  const isDisabled = !isValid || isSubmitting
 
   return (
     <ModalWrapper isVisible={isVisible} {...rest}>
@@ -91,8 +88,11 @@ const DownloadModal = ({ isVisible, onDownload, onClose, ...rest }) => {
                 <FormattedMessage id="email.success.2" />
               </p>
             )}
-            {!hasSubmitted && (
+            {!hasSubmitted && !isSubmitting && (
               <>
+                <label>
+                  <FormattedMessage id="input.email.label" />
+                </label>
                 <input
                   type="email"
                   name="email"
@@ -103,19 +103,9 @@ const DownloadModal = ({ isVisible, onDownload, onClose, ...rest }) => {
                     id: 'input.email.placeholder',
                   })}
                 />
-                <Spinner isVisible={isSubmitting} />
-                {showSubmit && !isSubmitting && (
-                  <button
-                    className="button-sm"
-                    type="submit"
-                    onClick={() => handleSubmit()}
-                    disabled={isDisabled}
-                  >
-                    <FormattedMessage id="button.submit" />
-                  </button>
-                )}
               </>
             )}
+            {isSubmitting && <Spinner isVisible={isSubmitting} />}
           </EmailInput>
         </Wrapper>
         <Footer>
@@ -180,20 +170,23 @@ const Ol = styled.ol({
 
 const EmailInput = styled.div({
   display: 'flex',
+  flexDirection: 'column',
   justifyContent: 'space-between',
-  alignItems: 'center',
-  alignContent: 'center',
+  //alignItems: 'center',
+  //alignContent: 'center',
   width: '100%',
-  marginTop: 20,
+  marginTop: 10,
   input: {
+    marginTop: 10,
     padding: 10,
     border: '2px solid var(--theme-brand)',
     borderRadius: 5,
     //width: '70%',
-    width: '100%',
+    //width: '100%',
     color: 'var(--theme-font)',
     backgroundColor: 'var(--theme-dropdown-background)',
   },
+  label: { marginBottom: 5 },
 })
 
 const Footer = styled.div({

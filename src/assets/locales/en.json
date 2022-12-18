@@ -4,6 +4,7 @@
   "contact": "Contact",
   "here": "here",
   "button.submit": "Submit",
+  "input.email.label": "Optional:",
   "input.email.placeholder": "Your email address",
   "email.success.1": "Great! We've just sent you an email, please check your inbox.",
   "email.success.2": "If it doesn't appear, check also your spam folder.",
