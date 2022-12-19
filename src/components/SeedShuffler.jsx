@@ -268,7 +268,7 @@ const SeedShuffler = ({}) => {
       </h2>
       <ExplainerVideo className="intro-text">
         <a
-          href="https://www.youtube.com/watch?v=CeQpvk9FeMg"
+          href="https://youtu.be/W_Z9ysETLR4"
           target="_blank"
           rel="noopener noreferrer"
         >
